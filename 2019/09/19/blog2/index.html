@@ -137,7 +137,7 @@
             <p>今天，作者来盘点一下64位Windows安装MySQL8过程中遇到的坑。<br>首先点击下载<a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">MySQL</a></p>
 <a id="more"></a>
 
-<p>进入网站之后，首先选择Windows系统，如下图，请选择下载第一个压缩包，然后点击No thanks, just start my download.（第一坑：书上说的下载二进制版本，请不要认为需要下载第二个压缩包，因为他只有调试和测试文件，新手安装并不需要）。<img src="https://github.com/18yang/-01/blob/%E5%AE%89%E8%A3%85mysql/MySQL.png?raw=true" alt=""></p>
+<p>进入网站之后，首先选择Windows系统，如下图，请选择下载第一个压缩包，然后点击No thanks, just start my download.（第一坑：书上说的下载二进制版本，请不要认为需要下载第二个压缩包，因为他只有调试和测试文件，新手安装并不需要）。<img src="https://github.com/18yang/-01/blob/%E5%AE%89%E8%A3%85mysql/MySQL.png?raw=true" srcset="/img/loading.gif" alt=""></p>
 <p>下载完之后，解压到盘文件夹，例如我的C:\web\mysql-8.0.17-winx64，开始配置环境变量，右击 此电脑 — 属性 — 高级系统设置 — 环境变量</p>
 <p>在系统变量框中，双击path进入，选择新建，在其中加入你的文件夹的路径，如我的C:\web\mysql-8.0.17-winx64\bin    （ 。。。。。注意bin）</p>
 <p>设置完毕之后，在mysql-8.0.17-winx64文件夹下创建my.ini配置文件<br>输入</p>
@@ -157,7 +157,7 @@
      # 服务端使用的字符集默认为8比特编码的latin1字符集
      character-set-server=utf8
      # 创建新表时将使用的默认存储引擎
-     default-storage-engine=INNODB</code></pre><p>接下来我们启动MySQL数据库：<br>以管理员的身份打开DOS界面<br><img src="https://github.com/18yang/-01/blob/%E5%AE%89%E8%A3%85mysql/cmd.png?raw=true" alt=""></p>
+     default-storage-engine=INNODB</code></pre><p>接下来我们启动MySQL数据库：<br>以管理员的身份打开DOS界面<br><img src="https://github.com/18yang/-01/blob/%E5%AE%89%E8%A3%85mysql/cmd.png?raw=true" srcset="/img/loading.gif" alt=""></p>
 <p>切换数据库文件所在（bin）目录：</p>
 <pre><code>     cd C:\web\mysql-8.0.17-winx64\bin</code></pre><p>初始化数据库：</p>
 <pre><code>     mysqld --initialize --console</code></pre><p>执行完之后，会出现root用户的密码，如：</p>
@@ -274,6 +274,8 @@
 <script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
 <script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
 <script src="/js/main.js" ></script>
+
+  <script src="/js/lazyload.js" ></script>
 
 
   
