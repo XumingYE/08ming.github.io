@@ -58,7 +58,7 @@
     <link href="undefined2019/10/21/request%E5%AF%B9%E8%B1%A1/"/>
     <url>2019/10/21/request%E5%AF%B9%E8%B1%A1/</url>
     
-    <content type="html"><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><ul><li><strong>request对象的基础使用</strong></li><li>作者: 叶某</li></ul><a id="more"></a><ol><li><h3 id="基本的网页响应形式"><a href="#基本的网页响应形式" class="headerlink" title="基本的网页响应形式"></a>基本的网页响应形式</h3></li></ol><blockquote><p>用户端界面发送请求–&gt;响应端界面</p></blockquote><ol start="2"><li><h3 id="request应用实例"><a href="#request应用实例" class="headerlink" title="request应用实例"></a>request应用实例</h3></li></ol><ul><li><p>首先新建一个文件名为login.jsp文件，源码如下</p><pre><code>  &lt;%@pagecontentType=&quot;text/html;charset=UTF-8&quot;language=&quot;java&quot;%&gt;  &lt;html&gt;  &lt;head&gt;  &lt;title&gt;getRequest.jsp&lt;/title&gt;  &lt;/head&gt;  &lt;body&gt;  &lt;div style=&quot;text-align:center&quot;&gt;  &lt;forma ction=&quot;响应的界面名称&quot;method=&quot;响应方式有两种1.post2.get&quot;一般为post&gt;  &lt;tr&gt;  &lt;td&gt;用户名称&lt;/td&gt;  &lt;td&gt;&lt;input name=&quot;usename&quot;type=&quot;text&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;用户密码&lt;/td&gt;  &lt;td&gt;&lt;input name=&quot;password&quot;type=&quot;password&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;&lt;input type=&quot;submit&quot;value=&quot;登录&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;  &lt;/form&gt;  &lt;/div&gt;  &lt;/body&gt;  &lt;/html&gt;</code></pre></li><li><p>如上文中的<code>&lt;input&gt;</code>属性中的name就是响应端能够得到的数据的名称，type则为该数据的数据类型（如：设置为”password”，用户密码输入时的内容将用”*”代替显示）其中我们把用户输入的数据放入<form>标签中，这样当用户点击type为submit按钮界面就会跳转到响应的页面中。</p><br/><br/></li><li><p>如图所示</p><blockquote><p><img src="https://github.com/08ming/Img/blob/master/example.png" srcset="/img/loading.gif" alt="img"></p></blockquote></li></ul><ol start="3"><li><h3 id="取得用户输入的数据"><a href="#取得用户输入的数据" class="headerlink" title="取得用户输入的数据"></a>取得用户输入的数据</h3></li></ol><ul><li>首先新建一个名为”getInfo.jsp”JSP文件,源码如下：<pre><code> &lt;%@pagecontentType=&quot;text/html;charset=UTF-8&quot;language=&quot;java&quot;%&gt; &lt;html&gt; &lt;head&gt; &lt;title&gt;getInfo.jsp&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;% String name=request.getParameter(&quot;usename&quot;); String password=request.getParameter(&quot;password&quot;); %&gt; &lt;/body&gt; &lt;/html&gt;</code></pre></li></ul><p>```</p><ul><li>这样用户的输入数据就保存在name和password中了，你就可以利用用户给出的数据执行一些操作。<br/><br/></li><li>关于数据的存储还有创建对象的方式，详细会在下次内容中讲解。</li></ul>]]></content>
+    <content type="html"><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><ul><li><strong>request对象的基础使用</strong></li><li>作者: 叶某</li></ul><a id="more"></a><ol><li><h3 id="基本的网页响应形式"><a href="#基本的网页响应形式" class="headerlink" title="基本的网页响应形式"></a>基本的网页响应形式</h3></li></ol><blockquote><p>用户端界面发送请求–&gt;响应端界面</p></blockquote><ol start="2"><li><h3 id="request应用实例"><a href="#request应用实例" class="headerlink" title="request应用实例"></a>request应用实例</h3></li></ol><ul><li><p>首先新建一个文件名为login.jsp文件，源码如下</p><pre><code>  &lt;%@pagecontentType=&quot;text/html;charset=UTF-8&quot;language=&quot;java&quot;%&gt;  &lt;html&gt;  &lt;head&gt;  &lt;title&gt;getRequest.jsp&lt;/title&gt;  &lt;/head&gt;  &lt;body&gt;  &lt;div style=&quot;text-align:center&quot;&gt;  &lt;forma ction=&quot;响应的界面名称&quot;method=&quot;响应方式有两种1.post2.get&quot;一般为post&gt;  &lt;tr&gt;  &lt;td&gt;用户名称&lt;/td&gt;  &lt;td&gt;&lt;input name=&quot;usename&quot;type=&quot;text&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;用户密码&lt;/td&gt;  &lt;td&gt;&lt;input name=&quot;password&quot;type=&quot;password&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;&lt;input type=&quot;submit&quot;value=&quot;登录&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;  &lt;/form&gt;  &lt;/div&gt;  &lt;/body&gt;  &lt;/html&gt;</code></pre></li><li><p>如上文中的<code>&lt;input&gt;</code>属性中的name就是响应端能够得到的数据的名称，type则为该数据的数据类型（如：设置为”password”，用户密码输入时的内容将用”*”代替显示）其中我们把用户输入的数据放入<form>标签中，这样当用户点击type为submit按钮界面就会跳转到响应的页面中。</p><br/><br/></li><li><p>如图所示</p><blockquote><p><img src="https://github.com/08ming/Img/blob/master/example.png?raw=true" srcset="/img/loading.gif" alt="img"></p></blockquote></li></ul><ol start="3"><li><h3 id="取得用户输入的数据"><a href="#取得用户输入的数据" class="headerlink" title="取得用户输入的数据"></a>取得用户输入的数据</h3></li></ol><ul><li>首先新建一个名为”getInfo.jsp”JSP文件,源码如下：<pre><code> &lt;%@pagecontentType=&quot;text/html;charset=UTF-8&quot;language=&quot;java&quot;%&gt; &lt;html&gt; &lt;head&gt; &lt;title&gt;getInfo.jsp&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;% String name=request.getParameter(&quot;usename&quot;); String password=request.getParameter(&quot;password&quot;); %&gt; &lt;/body&gt; &lt;/html&gt;</code></pre></li></ul><p>```</p><ul><li>这样用户的输入数据就保存在name和password中了，你就可以利用用户给出的数据执行一些操作。<br/><br/></li><li>关于数据的存储还有创建对象的方式，详细会在下次内容中讲解。</li></ul>]]></content>
     
     
     
@@ -165,31 +165,6 @@
   
   
   <entry>
-    <title>入门程序员必备基础（一）—— 计算机系统基础（一）</title>
-    <link href="undefined2019/09/19/blog1/"/>
-    <url>2019/09/19/blog1/</url>
-    
-    <content type="html"><![CDATA[<p>计算机系统是由硬件和软件系统组成，通过运行程序来协调工作。计算机硬件是物理装置，计算机软件是程序、数据、和相关文档的集合。</p><a id="more"></a><h2 id="1-计算机硬件"><a href="#1-计算机硬件" class="headerlink" title="1. 计算机硬件"></a>1. 计算机硬件</h2><p>  基本的计算机硬件系统有运算器、控制器、存储器、输入设备输出设备组成。</p><p>  其中运算器和控制器及相关部件集成在一起，称作中央处理单元（CPU）。CPU是硬件的核心，用于数据的加工处理，能完成各种算术、逻辑运算及来控制公能。</p><p>  存储器分为内部存储器存和外部存储器。相对来说内存速度快、容量小，一般用于临时存储计算机运行时所需的程序、数据和计算结果。外存容量大、速度慢，可用于长期保存信息。寄存器是CPU中的存储器件，速度比内存快得多。</p><p>  习惯上将CPU和主存储器的有机结合称为主机。 </p><p>  输入/输出（I/O）设备是计算机系统与外界交换信息的装置。</p><h2 id="2-计算机软件"><a href="#2-计算机软件" class="headerlink" title="2. 计算机软件"></a>2. 计算机软件</h2><p>  如果计算机系统中只有硬件系统，则只具备计算的基础，并不能真正的计算，只有将解决问题的步骤编制成机器可识别的程序并加载到计算机内存开始运行，才能完成计算。</p><p>  软件分为系统软件、中间件和应用软件。</p><ul><li>系统软件：主要功能是管理系统的硬件和软件资源；</li><li>应用软件：用于解决应用领域的具体问题；</li><li>中间件：是一类独立的系统软件或服务程序，常用来管理计算资源和网络通信。提供网络通信处理，数据存取，事务处理，Web服务，安全，跨平台等服务。</li></ul><h2 id="3-计算机分类"><a href="#3-计算机分类" class="headerlink" title="3. 计算机分类"></a>3. 计算机分类</h2><ul><li>个人移动设备（PWD）：如智能手机，平板电脑等；</li><li>桌面计算机：包括低端的上网本，台式计算机，笔记本计算机以及高配置的工作站，核心部分是基于超大规模集成电路技术的CPU。</li><li>服务器：主要提供大规模和可靠的文件及计算服务。强调可用性、可扩展性和很高的吞吐率。</li><li>集群/仓库级计算机：将数万个服务器连接在一起的大规模集群。</li><li>超级计算机：我国超级计算机主要有银河、天河、曙光、神威四个系列。</li><li>嵌入式计算机：针对某个特定的应用，对功能、可靠性、成本、体积、功耗有严格要求的计算机系统。日常生活中的微波炉，洗衣机、汽车等等都采用嵌入式计算机技术。</li></ul><h2 id="4-十进制数与字符的编码表示"><a href="#4-十进制数与字符的编码表示" class="headerlink" title="4. 十进制数与字符的编码表示"></a>4. 十进制数与字符的编码表示</h2><p>  任何字符被录入计算机后，都必须转换成二进制表示形式，称为字符编码。</p><p>  用4位二进制代码表示一位十进制数，称为二—十进制编码，简称BCD编码。根据4位代码中每一位是否有确定的权来划分，可分为有权码和无权码两类。</p><p>  应用最多的有权码是8421码，无权码中常用余3码和格雷码。（了解即可）</p><p>  更多内容持续更新中……<br>  若有什么建议，欢迎发送电子邮件留言，本人邮箱<a href="mailto:SubjuGateW@163.com" target="_blank" rel="noopener">SubjuGateW@163.com</a></p>]]></content>
-    
-    
-    <categories>
-      
-      <category>程序员基础</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>计算机基础</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
     <title>MySQL 安装与配置</title>
     <link href="undefined2019/09/19/blog2/"/>
     <url>2019/09/19/blog2/</url>
@@ -207,6 +182,31 @@
     <tags>
       
       <tag>MySQL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>入门程序员必备基础（一）—— 计算机系统基础（一）</title>
+    <link href="undefined2019/09/19/blog1/"/>
+    <url>2019/09/19/blog1/</url>
+    
+    <content type="html"><![CDATA[<p>计算机系统是由硬件和软件系统组成，通过运行程序来协调工作。计算机硬件是物理装置，计算机软件是程序、数据、和相关文档的集合。</p><a id="more"></a><h2 id="1-计算机硬件"><a href="#1-计算机硬件" class="headerlink" title="1. 计算机硬件"></a>1. 计算机硬件</h2><p>  基本的计算机硬件系统有运算器、控制器、存储器、输入设备输出设备组成。</p><p>  其中运算器和控制器及相关部件集成在一起，称作中央处理单元（CPU）。CPU是硬件的核心，用于数据的加工处理，能完成各种算术、逻辑运算及来控制公能。</p><p>  存储器分为内部存储器存和外部存储器。相对来说内存速度快、容量小，一般用于临时存储计算机运行时所需的程序、数据和计算结果。外存容量大、速度慢，可用于长期保存信息。寄存器是CPU中的存储器件，速度比内存快得多。</p><p>  习惯上将CPU和主存储器的有机结合称为主机。 </p><p>  输入/输出（I/O）设备是计算机系统与外界交换信息的装置。</p><h2 id="2-计算机软件"><a href="#2-计算机软件" class="headerlink" title="2. 计算机软件"></a>2. 计算机软件</h2><p>  如果计算机系统中只有硬件系统，则只具备计算的基础，并不能真正的计算，只有将解决问题的步骤编制成机器可识别的程序并加载到计算机内存开始运行，才能完成计算。</p><p>  软件分为系统软件、中间件和应用软件。</p><ul><li>系统软件：主要功能是管理系统的硬件和软件资源；</li><li>应用软件：用于解决应用领域的具体问题；</li><li>中间件：是一类独立的系统软件或服务程序，常用来管理计算资源和网络通信。提供网络通信处理，数据存取，事务处理，Web服务，安全，跨平台等服务。</li></ul><h2 id="3-计算机分类"><a href="#3-计算机分类" class="headerlink" title="3. 计算机分类"></a>3. 计算机分类</h2><ul><li>个人移动设备（PWD）：如智能手机，平板电脑等；</li><li>桌面计算机：包括低端的上网本，台式计算机，笔记本计算机以及高配置的工作站，核心部分是基于超大规模集成电路技术的CPU。</li><li>服务器：主要提供大规模和可靠的文件及计算服务。强调可用性、可扩展性和很高的吞吐率。</li><li>集群/仓库级计算机：将数万个服务器连接在一起的大规模集群。</li><li>超级计算机：我国超级计算机主要有银河、天河、曙光、神威四个系列。</li><li>嵌入式计算机：针对某个特定的应用，对功能、可靠性、成本、体积、功耗有严格要求的计算机系统。日常生活中的微波炉，洗衣机、汽车等等都采用嵌入式计算机技术。</li></ul><h2 id="4-十进制数与字符的编码表示"><a href="#4-十进制数与字符的编码表示" class="headerlink" title="4. 十进制数与字符的编码表示"></a>4. 十进制数与字符的编码表示</h2><p>  任何字符被录入计算机后，都必须转换成二进制表示形式，称为字符编码。</p><p>  用4位二进制代码表示一位十进制数，称为二—十进制编码，简称BCD编码。根据4位代码中每一位是否有确定的权来划分，可分为有权码和无权码两类。</p><p>  应用最多的有权码是8421码，无权码中常用余3码和格雷码。（了解即可）</p><p>  更多内容持续更新中……<br>  若有什么建议，欢迎发送电子邮件留言，本人邮箱<a href="mailto:SubjuGateW@163.com" target="_blank" rel="noopener">SubjuGateW@163.com</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>程序员基础</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>计算机基础</tag>
       
     </tags>
     
