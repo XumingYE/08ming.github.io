@@ -181,26 +181,40 @@ int main()
     return 0;
 }</code></pre><p>值得一提的是，需要先从右至左寻找比基准小的数，防止基准数就是数组中的最小值引起的数组溢出。<br>由于代码为了能简单易懂，数组的大小和初值直接准备好了，读者也可以自行编写增加其功能。</p>
 <p>最后，还贴出一种排序算法代码————冒泡排序</p>
-<p>冒泡排序的核心就是把最小的值向后转移，但是其时间复杂度为n的平方，若数据较多时，排序很难进行，但是其思路非常容易，便于初学者学习。<br>···<br>int main()<br>{<br>    int a[11]={0};<br>    int temp = 0;<br>    for(int i = 0; i &lt; 10; i ++){<br>        //输入十个数进入数组<br>        cin&gt;&gt;a[i];<br>    }</p>
-<pre><code>//数越小，越靠后
-for(int i = 0; i &lt; 10; i ++){
-    for(int j = 0; j &lt; 10-1-i; j ++){
-        //10-i-1 表示数组最后的数已经排好序，没有必要再次遍历
-        if(a[j]&lt;a[j+1]){
-            //将小数往后移
-            temp = a[j];
-            a[j] = a[j+1];
-            a[j+1] = temp;
+<p>冒泡排序的核心就是把最小的值向后转移，但是其时间复杂度为n的平方，若数据较多时，排序很难进行，但是其思路非常容易，便于初学者学习。</p>
+<pre><code>
+int main()
+{
+    int a[11]={0};
+    int temp = 0;
+    for(int i = 0; i &lt; 10; i ++){
+        //输入十个数进入数组
+        cin&gt;&gt;a[i];
+    }
+
+    //数越小，越靠后
+    for(int i = 0; i &lt; 10; i ++){
+        for(int j = 0; j &lt; 10-1-i; j ++){
+            //10-i-1 表示数组最后的数已经排好序，没有必要再次遍历
+            if(a[j]&lt;a[j+1]){
+                //将小数往后移
+                temp = a[j];
+                a[j] = a[j+1];
+                a[j+1] = temp;
+            }
         }
     }
-}
 
-for(int i = 0; i &lt; 10; i ++){
-    //输出数组的值
-    cout&lt;&lt;a[i]&lt;&lt;&quot;  &quot;;
-}
+    for(int i = 0; i &lt; 10; i ++){
+        //输出数组的值
+        cout&lt;&lt;a[i]&lt;&lt;&quot;  &quot;;
+    }
 
-return 0;</code></pre><p>}<br>···<br>若有疑问，可以发送邮件至<a href="mailto:SubjuGateW@163.com" target="_blank" rel="noopener">SubjuGateW@163.com</a></p>
+    return 0;
+}</code></pre><hr>
+<h3 id="错误提示"><a href="#错误提示" class="headerlink" title="   错误提示  "></a><font color=red>   错误提示  </font ></h3><p> 相信如果执行过以上快速排序代码的都会发现问题：结果错误<br> 这是因为在找比基数大（小）的数的循环条件出现了问题<br> 修改成<code>while(a[j]&gt;=temp&amp;&amp;i&lt;j)</code>以及<code>while(a[i]&lt;temp&amp;&amp;i&lt;j)</code>，具体为什么请读者自己思考</p>
+<p> 还有个小错误 main函数中的quicksort(1,11)应改为quicksort(1,10)</p>
+<p>若有疑问，可以发送邮件至<a href="mailto:SubjuGateW@163.com" target="_blank" rel="noopener">SubjuGateW@163.com</a></p>
 
             <hr>
           </div>
