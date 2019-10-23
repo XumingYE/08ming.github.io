@@ -4,11 +4,61 @@
   
   
   <entry>
+    <title>快速排序算法</title>
+    <link href="undefined2019/10/22/blog10/"/>
+    <url>2019/10/22/blog10/</url>
+    
+    <content type="html"><![CDATA[<p>生活中的排序随处可见，而排序算法更是五花八门，作者此次介绍一种最常用的排序算法————快速排序。快排的核心思想就是“二分”和“递归”，二分，顾名思义，每次将要排序的数分成两半，一次次的细分，使排序的数变少，提高程序效率。递归，就是在该函数内部调用自己本身，直到某约束条件要求结束，才停住递归，最常见的递归方法用于计算阶层。</p><a id="more"></a><p>下面开始介绍快速排序：见代码以及注释内容</p><pre><code>#include &lt;iostream&gt;using namespace std;int a[11]={0,6,1,2,7,9,3,4,5,10,8}; //定义一个数组void quicksort(int left, int right) //排序函数{    int i,j,t,temp;    i=left;                         //i赋值为左起点    j=right;                        //j赋值为右终点    temp=a[left];                   //temp表示基准数    if(i&gt;j) return;                 //判断传参是否错误    while(i != j)    {        while(a[j]&gt;temp&amp;&amp;i&lt;j){      //从右至左找到比基准小的数            j--;        }        while(a[i]&lt;temp&amp;&amp;i&lt;j){      //从左到右找到比基准大的数            i++;        }        if(i!=j){                   //如果i和j没有在一个数上，交换i，j所指两个数的位置            t=a[i];            a[i]=a[j];            a[j]=t;        }    }    a[left]=a[i];                   //i和j指向一个数时，交换其与基准的值    a[i]=temp;    quicksort(left,i-1);            //将基准左边的数排好    quicksort(i+1,right);           //将基准右边的数排好    return;}int main(){    quicksort(1,11);                //调用快速排序的函数    for(int i = 1; i &lt; 11; i ++){        cout&lt;&lt;a[i]&lt;&lt;&quot;  &quot;;    }    return 0;}</code></pre><p>值得一提的是，需要先从右至左寻找比基准小的数，防止基准数就是数组中的最小值引起的数组溢出。<br>由于代码为了能简单易懂，数组的大小和初值直接准备好了，读者也可以自行编写增加其功能。</p><p>最后，还贴出一种排序算法代码————冒泡排序</p><p>冒泡排序的核心就是把最小的值向后转移，但是其时间复杂度为n的平方，若数据较多时，排序很难进行，但是其思路非常容易，便于初学者学习。<br>···<br>int main()<br>{<br>    int a[11]={0};<br>    int temp = 0;<br>    for(int i = 0; i &lt; 10; i ++){<br>        //输入十个数进入数组<br>        cin&gt;&gt;a[i];<br>    }</p><pre><code>//数越小，越靠后for(int i = 0; i &lt; 10; i ++){    for(int j = 0; j &lt; 10-1-i; j ++){        //10-i-1 表示数组最后的数已经排好序，没有必要再次遍历        if(a[j]&lt;a[j+1]){            //将小数往后移            temp = a[j];            a[j] = a[j+1];            a[j+1] = temp;        }    }}for(int i = 0; i &lt; 10; i ++){    //输出数组的值    cout&lt;&lt;a[i]&lt;&lt;&quot;  &quot;;}return 0;</code></pre><p>}<br>···<br>若有疑问，可以发送邮件至<a href="mailto:SubjuGateW@163.com" target="_blank" rel="noopener">SubjuGateW@163.com</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>算法基础</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>常用算法</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Servlet技术</title>
+    <link href="undefined2019/10/21/blog9/"/>
+    <url>2019/10/21/blog9/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Servlet是什么"><a href="#Servlet是什么" class="headerlink" title="Servlet是什么"></a>Servlet是什么</h2><h4 id="Servlet是利用java类编写的服务端应用程序，顾名思义，它通常实在服务端运行的程序，打开浏览器即可调用一个。它可以被看作是位于客户端和服务器端的一个中间层，负责接受和请求客户端用户的响应。"><a href="#Servlet是利用java类编写的服务端应用程序，顾名思义，它通常实在服务端运行的程序，打开浏览器即可调用一个。它可以被看作是位于客户端和服务器端的一个中间层，负责接受和请求客户端用户的响应。" class="headerlink" title="Servlet是利用java类编写的服务端应用程序，顾名思义，它通常实在服务端运行的程序，打开浏览器即可调用一个。它可以被看作是位于客户端和服务器端的一个中间层，负责接受和请求客户端用户的响应。"></a>Servlet是利用java类编写的服务端应用程序，顾名思义，它通常实在服务端运行的程序，打开浏览器即可调用一个。它可以被看作是位于客户端和服务器端的一个中间层，负责接受和请求客户端用户的响应。</h4><h4 id="Servlet可以提供以下功能："><a href="#Servlet可以提供以下功能：" class="headerlink" title="Servlet可以提供以下功能："></a>Servlet可以提供以下功能：</h4><ol><li>对客户端发送的数据进行读取和拦截</li><li>读取客户端请求的隐含数据</li><li>运行结果或者生成接果</li><li>发送响应的数据</li></ol><a id="more"></a><h4 id="Servlet技术特点"><a href="#Servlet技术特点" class="headerlink" title="Servlet技术特点"></a>Servlet技术特点</h4><ol><li>高效率</li><li>简单方便</li></ol><h4 id="Servlet的生命周期"><a href="#Servlet的生命周期" class="headerlink" title="Servlet的生命周期"></a>Servlet的生命周期</h4><ul><li><h5 id="初始化阶段"><a href="#初始化阶段" class="headerlink" title="初始化阶段"></a>初始化阶段</h5><p>  初始化阶段分为装载和初始化两个子阶段。装载就是由Servlet容器装载一个Servlet类，把它装载到java内存中，Servlet容器可创建一个Servlet对象并与web.xml中的配置对应起来，初始化子阶段是调用Servlet中的init（）方法，在整个Servlet生命周期中init（）方法只调用一次。</p></li><li><h5 id="运行阶段"><a href="#运行阶段" class="headerlink" title="运行阶段"></a>运行阶段</h5><p>  在这个阶段中会实际响应客户端的请求，当有请求时Servlet会创建HttpServletRequest和HttpServletResponse对象，然后调用service（HttpServletRequest request，HttpServletResponse response）方法，service（）方法通过request对象获取请求对象的信息并加以处理，再由response对象对客户端做出响应。</p></li><li><h4 id="消亡阶段"><a href="#消亡阶段" class="headerlink" title="消亡阶段"></a>消亡阶段</h4><p>  当Servlet应用被终止后，Servlet容器会调用destroy（）方法对Servlet对象进行销毁动作，同样，destroy（）方法在整个生命周期中只能被调用一次。</p></li></ul><h4 id="Servlet的编写与部署"><a href="#Servlet的编写与部署" class="headerlink" title="Servlet的编写与部署"></a>Servlet的编写与部署</h4><p>我们将创建的Servlet的Java class文件放在src文件夹下，也可以新建文件夹。对于刚创建好的java类，其主类必须继承至HttpServlet类，这样才可以具有开发功能。<br>编写好Servlet代码后，还需要配置WEB-INF文件夹下的web.xml文件，而在实际开发中，用的最多的是以下这种：<br>（在Servlet代码中主类前面加上以下代码）</p><pre><code>@WebServlet(     urlPatterns = {&quot;/自定义文件别名&quot;},     name = &quot;文件名&quot; )</code></pre><p>在平时开发过程中，一般都继承了HttpServlet类，因为它封装了很多基于HTTP协议下的Servlet功能，当然自己想开发一个协议还可以继承GenericServlet类。Servlet中有两个处理请求的方法，一个是doGet（）方法，响应HTTP Get请求，另一个是doPost（）方法，响应HTTP Post请求。</p><p>以下是重点基础：</p><p>首先了解一下容器，Web容器的作用就是创建一个Servlet实例，并完成Servlet的注册以及根据web.xml中的URL进行响应，当请求来到容器时，Web容器会转发给对应的Servlet来处理请求。</p><ol><li><h3 id="请求（HttpServletRequest）"><a href="#请求（HttpServletRequest）" class="headerlink" title="请求（HttpServletRequest）"></a>请求（HttpServletRequest）</h3></li></ol><ul><li><p>使用getReader（）方法获取Body内容，</p><p>   BufferedReader br = request.getReader();//创建一个缓冲对象，一次性读取所有数据。</p><p>   读取数据可以使用：br.readLine()方法，表示一次性读取一行字符串</p><p>   form表单中需要添加enctype的值为multipart/form-data，表示从客户端上床文件，这是读取文件才不会得到奇怪的字符</p></li><li><p>使用getPart（）、getParts（）方法取得上床的文件</p><p> 在使用getPart（）、和getParts（）方法时，必须用MultipartConfig注解，才能获得Part对象。</p></li></ul><blockquote><pre><code>@MultipartConfig(    location = &quot;本地路径&quot;， //存放地址    maxFileSize = 1024 * 1024 * 10   //设置允许上传的文件的最大值 )</code></pre></blockquote><blockquote><pre><code>Part part = request.getPart(&quot;文件名&quot;)； //获取part对象String filename = Filename(part); //获取文件名字，Filename需要自行编写part.write(filename);</code></pre></blockquote><ul><li><p>使用RequestDispatcher调派请求</p><p>  //获取对象<br>  RequestDispatcher dispatcher = request.getRequestDispatcher(“/某页面别名”);<br>  dispatcher.include(request,response);//包含该页面内容<br>  //或者 dispatcher.forward(request,response);//跳转至该页面</p></li></ul><h3 id="响应（HttpServletResponse）"><a href="#响应（HttpServletResponse）" class="headerlink" title="响应（HttpServletResponse）"></a>响应（HttpServletResponse）</h3><ul><li><p>使用getWriter（）输出字符</p><p>   在含有中文的请求与响应时，必须设置编码类型<br>   response.setContentType(“text/html;charset=UTF-8”);<br>   //取得对象<br>   PrintWriter out = response.getWriter();<br>   //输出页面内容<br>   out.println(“&lt; HTML &gt;”);<br>   out.println(“  &lt; HEAD &gt;&lt; TITLE &gt;A Servlet&lt; /TITLE &gt;&lt; /HEAD &gt;”);<br>   out.println(“   &lt; BODY &gt;”);<br>   out.println(“  &lt; /BODY &gt;”);<br>   out.println(“&lt; /HTML &gt;”);<br>   out.close();//注意一定要close</p></li><li><p>使用DownloadServlet 下载文件</p></li><li><p>使用sendRedirect（）方法跳转至其他页面，地址栏地址发送改变</p></li><li><p>使用sendError（）方法传递服务器的状态和错误信息</p></li></ul><h3 id="会话管理（HttpSession）"><a href="#会话管理（HttpSession）" class="headerlink" title="会话管理（HttpSession）"></a>会话管理（HttpSession）</h3><pre><code>//获取对象HttpSession session = request.getSession();//设置name参数session.setAttibute(&quot;name&quot;,name);//URL重写response.encodeURL(&quot;login.jsp&quot;);</code></pre><p>本次介绍很的是重要的三个功能，与jsp中三个内置对象对应，其中的方法也是大同小异，所以没有太多介绍方法。由于本人能力有限，有何建议，可以发送至邮箱<a href="mailto:SubjuGateW@163.com" target="_blank" rel="noopener">SubjuGateW@163.com</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Java web开发学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>JSP/Servlet</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>request获取数据</title>
     <link href="undefined2019/10/21/request%E5%AF%B9%E8%B1%A1/"/>
     <url>2019/10/21/request%E5%AF%B9%E8%B1%A1/</url>
     
-    <content type="html"><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><ul><li><strong>request对象的基础使用</strong></li><li>作者: 叶某</li></ul><a id="more"></a><ol><li><h3 id="基本的网页响应形式"><a href="#基本的网页响应形式" class="headerlink" title="基本的网页响应形式"></a>基本的网页响应形式</h3></li></ol><blockquote><p>用户端界面发送请求–&gt;响应端界面</p></blockquote><ol start="2"><li><h3 id="request应用实例"><a href="#request应用实例" class="headerlink" title="request应用实例"></a>request应用实例</h3></li></ol><ul><li><p>首先新建一个文件名为login.jsp文件，源码如下</p><pre><code>  &lt;%@pagecontentType=&quot;text/html;charset=UTF-8&quot;language=&quot;java&quot;%&gt;  &lt;html&gt;  &lt;head&gt;  &lt;title&gt;getRequest.jsp&lt;/title&gt;  &lt;/head&gt;  &lt;body&gt;  &lt;div style=&quot;text-align:center&quot;&gt;  &lt;forma ction=&quot;响应的界面名称&quot;method=&quot;响应方式有两种1.post2.get&quot;一般为post&gt;  &lt;tr&gt;  &lt;td&gt;用户名称&lt;/td&gt;  &lt;td&gt;&lt;input name=&quot;usename&quot;type=&quot;text&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;用户密码&lt;/td&gt;  &lt;td&gt;&lt;input name=&quot;password&quot;type=&quot;password&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;&lt;input type=&quot;submit&quot;value=&quot;登录&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;  &lt;/form&gt;  &lt;/div&gt;  &lt;/body&gt;  &lt;/html&gt;</code></pre></li><li><p>如上文中的<code>&lt;input&gt;</code>属性中的name就是响应端能够得到的数据的名称，type则为该数据的数据类型（如：设置为”password”，用户密码输入时的内容将用”*”代替显示）其中我们把用户输入的数据放入<form>标签中，这样当用户点击type为submit按钮界面就会跳转到响应的页面中。</p><br/><br/></li><li><p>如图所示</p></li></ul><blockquote><p><img src="https://github.com/08ming/Img/blob/master/example.png" srcset="/img/loading.gif" alt="img"></p></blockquote><ol start="3"><li><h3 id="取得用户输入的数据"><a href="#取得用户输入的数据" class="headerlink" title="取得用户输入的数据"></a>取得用户输入的数据</h3></li></ol><ul><li>首先新建一个名为”getInfo.jsp”JSP文件,源码如下：<pre><code> &lt;%@pagecontentType=&quot;text/html;charset=UTF-8&quot;language=&quot;java&quot;%&gt; &lt;html&gt; &lt;head&gt; &lt;title&gt;getInfo.jsp&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;% String name=request.getParameter(&quot;usename&quot;); String password=request.getParameter(&quot;password&quot;); %&gt; &lt;/body&gt; &lt;/html&gt;</code></pre></li></ul><p>```</p><ul><li>这样用户的输入数据就保存在name和password中了，你就可以利用用户给出的数据执行一些操作。<br/><br/></li><li>关于数据的存储还有创建对象的方式，详细会在下次内容中讲解。</li></ul>]]></content>
+    <content type="html"><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><ul><li><strong>request对象的基础使用</strong></li><li>作者: 叶某</li></ul><a id="more"></a><ol><li><h3 id="基本的网页响应形式"><a href="#基本的网页响应形式" class="headerlink" title="基本的网页响应形式"></a>基本的网页响应形式</h3></li></ol><blockquote><p>用户端界面发送请求–&gt;响应端界面</p></blockquote><ol start="2"><li><h3 id="request应用实例"><a href="#request应用实例" class="headerlink" title="request应用实例"></a>request应用实例</h3></li></ol><ul><li><p>首先新建一个文件名为login.jsp文件，源码如下</p><pre><code>  &lt;%@pagecontentType=&quot;text/html;charset=UTF-8&quot;language=&quot;java&quot;%&gt;  &lt;html&gt;  &lt;head&gt;  &lt;title&gt;getRequest.jsp&lt;/title&gt;  &lt;/head&gt;  &lt;body&gt;  &lt;div style=&quot;text-align:center&quot;&gt;  &lt;forma ction=&quot;响应的界面名称&quot;method=&quot;响应方式有两种1.post2.get&quot;一般为post&gt;  &lt;tr&gt;  &lt;td&gt;用户名称&lt;/td&gt;  &lt;td&gt;&lt;input name=&quot;usename&quot;type=&quot;text&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;用户密码&lt;/td&gt;  &lt;td&gt;&lt;input name=&quot;password&quot;type=&quot;password&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;&lt;input type=&quot;submit&quot;value=&quot;登录&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;  &lt;/form&gt;  &lt;/div&gt;  &lt;/body&gt;  &lt;/html&gt;</code></pre></li><li><p>如上文中的<code>&lt;input&gt;</code>属性中的name就是响应端能够得到的数据的名称，type则为该数据的数据类型（如：设置为”password”，用户密码输入时的内容将用”*”代替显示）其中我们把用户输入的数据放入<form>标签中，这样当用户点击type为submit按钮界面就会跳转到响应的页面中。</p><br/><br/></li><li><p>如图所示</p><blockquote><p><img src="https://github.com/08ming/Img/blob/master/example.png" srcset="/img/loading.gif" alt="img"></p></blockquote></li></ul><ol start="3"><li><h3 id="取得用户输入的数据"><a href="#取得用户输入的数据" class="headerlink" title="取得用户输入的数据"></a>取得用户输入的数据</h3></li></ol><ul><li>首先新建一个名为”getInfo.jsp”JSP文件,源码如下：<pre><code> &lt;%@pagecontentType=&quot;text/html;charset=UTF-8&quot;language=&quot;java&quot;%&gt; &lt;html&gt; &lt;head&gt; &lt;title&gt;getInfo.jsp&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;% String name=request.getParameter(&quot;usename&quot;); String password=request.getParameter(&quot;password&quot;); %&gt; &lt;/body&gt; &lt;/html&gt;</code></pre></li></ul><p>```</p><ul><li>这样用户的输入数据就保存在name和password中了，你就可以利用用户给出的数据执行一些操作。<br/><br/></li><li>关于数据的存储还有创建对象的方式，详细会在下次内容中讲解。</li></ul>]]></content>
     
     
     
@@ -34,6 +84,206 @@
     <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><pre><code class="bash">$ hexo new &quot;My New Post&quot;</code></pre><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><pre><code class="bash">$ hexo server</code></pre><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><pre><code class="bash">$ hexo generate</code></pre><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><pre><code class="bash">$ hexo deploy</code></pre><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
     
     
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>request获取数据</title>
+    <link href="undefined2019/10/21/blog8/"/>
+    <url>2019/10/21/blog8/</url>
+    
+    <content type="html"><![CDATA[<h2 id="用户端界面发送请求–-gt-响应端界面"><a href="#用户端界面发送请求–-gt-响应端界面" class="headerlink" title="用户端界面发送请求–&gt;响应端界面"></a>用户端界面发送请求–&gt;响应端界面</h2><h4 id="作者：叶某"><a href="#作者：叶某" class="headerlink" title="作者：叶某"></a>作者：叶某</h4><a id="more"></a><ol><li><h3 id="基本的网页响应形式"><a href="#基本的网页响应形式" class="headerlink" title="基本的网页响应形式"></a>基本的网页响应形式</h3></li></ol><blockquote><p>用户端界面发送请求–&gt;响应端界面</p></blockquote><ol start="2"><li><h3 id="request应用实例"><a href="#request应用实例" class="headerlink" title="request应用实例"></a>request应用实例</h3></li></ol><ul><li><p>首先新建一个文件名为login.jsp文件，源码如下</p><pre><code>  &lt;%@pagecontentType=&quot;text/html;charset=UTF-8&quot;language=&quot;java&quot;%&gt;  &lt;html&gt;  &lt;head&gt;  &lt;title&gt;getRequest.jsp&lt;/title&gt;  &lt;/head&gt;  &lt;body&gt;  &lt;div style=&quot;text-align:center&quot;&gt;  &lt;forma ction=&quot;响应的界面名称&quot;method=&quot;响应方式有两种1.post2.get&quot;一般为post&gt;  &lt;tr&gt;  &lt;td&gt;用户名称&lt;/td&gt;  &lt;td&gt;&lt;input name=&quot;usename&quot;type=&quot;text&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;用户密码&lt;/td&gt;  &lt;td&gt;&lt;input name=&quot;password&quot;type=&quot;password&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;  &lt;tr&gt;  &lt;td&gt;&lt;input type=&quot;submit&quot;value=&quot;登录&quot;&gt;&lt;/td&gt;  &lt;/tr&gt;  &lt;/form&gt;  &lt;/div&gt;  &lt;/body&gt;  &lt;/html&gt;</code></pre></li><li><p>如上文中的<code>&lt;input&gt;</code>属性中的name就是响应端能够得到的数据的名称，type则为该数据的数据类型（如：设置为”password”，用户密码输入时的内容将用”*”代替显示）其中我们把用户输入的数据放入<form>标签中，这样当用户点击type为submit按钮界面就会跳转到响应的页面中。</p><br/><br/></li><li><p>如图所示</p></li></ul><blockquote><p><img src="https://github.com/18yang/-01/blob/%E5%AE%89%E8%A3%85mysql/example01.png?raw=true" srcset="/img/loading.gif" alt=""></p></blockquote><ol start="3"><li><h3 id="取得用户输入的数据"><a href="#取得用户输入的数据" class="headerlink" title="取得用户输入的数据"></a>取得用户输入的数据</h3></li></ol><ul><li>首先新建一个名为”getInfo.jsp”JSP文件,源码如下：<pre><code> &lt;%@pagecontentType=&quot;text/html;charset=UTF-8&quot;language=&quot;java&quot;%&gt; &lt;html&gt; &lt;head&gt; &lt;title&gt;getInfo.jsp&lt;/title&gt; &lt;/head&gt; &lt;body&gt; &lt;% String name=request.getParameter(&quot;usename&quot;); String password=request.getParameter(&quot;password&quot;); %&gt; &lt;/body&gt; &lt;/html&gt;</code></pre></li></ul><pre><code>+     这样用户的输入数据就保存在name和password中了，你就可以利用用户给出的数据执行一些操作。  &lt;br/&gt;   &lt;br/&gt;+     关于数据的存储还有创建对象的方式，详细会在下次内容中讲解。</code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>Java web开发学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>JSP/Servlet</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>JSP常用语法</title>
+    <link href="undefined2019/10/20/blog7/"/>
+    <url>2019/10/20/blog7/</url>
+    
+    <content type="html"><![CDATA[<h2 id="JSP基础语法——与编写HTML一样简单"><a href="#JSP基础语法——与编写HTML一样简单" class="headerlink" title="JSP基础语法——与编写HTML一样简单"></a>JSP基础语法——与编写HTML一样简单</h2><ol><li><h3 id="JSP简介"><a href="#JSP简介" class="headerlink" title="JSP简介"></a>JSP简介</h3><p> JSP技术是由SUN公司提出，于1999年推出的一款建设动态网页的方法。它是基于Java Servlet技术来开发动态的、高性能的Web应用程序。</p></li></ol><a id="more"></a><ol start="2"><li><h3 id="编写JSP所用的环境"><a href="#编写JSP所用的环境" class="headerlink" title="编写JSP所用的环境"></a>编写JSP所用的环境</h3><p> JDK8，Tomcat9服务器，和Intellij IDEA或者eclipse开发工具。</p></li><li><h3 id="JSP常用语法"><a href="#JSP常用语法" class="headerlink" title="JSP常用语法"></a>JSP常用语法</h3></li></ol><ul><li><h4 id="JSP注释"><a href="#JSP注释" class="headerlink" title="JSP注释"></a>JSP注释</h4><ul><li>HTML中常用的注释符</li><li>JSP的注释符  “&lt;%– 注释的内容 –%&gt;”</li><li>嵌套在其中的java语句注释符 “//”</li></ul></li><li><h4 id="JSP声明"><a href="#JSP声明" class="headerlink" title="JSP声明"></a>JSP声明</h4><p>  &lt;%！变量定义/方法定义/类 %&gt;</p><p>  &lt; jsp:declaration &gt;变量定义/方法定义/类&lt;/&gt;<br>  第二种方法已经很少使用，不提倡，在此只做了解</p></li><li><h4 id="JSP表达式"><a href="#JSP表达式" class="headerlink" title="JSP表达式"></a>JSP表达式</h4><p>  &lt;%= 变量或者表达式 %&gt;</p><p>  &lt; jsp:expression &gt;变量或者表达式&lt; /jsp:expression &gt;<br>  第二种方法已经很少使用，不提倡，在此只做了解</p></li></ul><ol start="4"><li><h3 id="JSP指令"><a href="#JSP指令" class="headerlink" title="JSP指令"></a>JSP指令</h3></li></ol><ul><li><h4 id="与页面相关的page指令"><a href="#与页面相关的page指令" class="headerlink" title="与页面相关的page指令"></a>与页面相关的page指令</h4><p>  page 指令用来设置页面的属性和相关功能，其语法为：<br>  &lt;%@ page attribute 1 = “value 1”[…attribute n= “value n”]%&gt;<br>  page指令使用最多的属性是language（页面使用语言）、import（用来声明需要导入的包）、pageEncoding（设置页面的编码）。</p><p>  例如： &lt;%@ page language=”java” import=”java.util.*” pageEncoding=”utf-8” %&gt;</p></li><li><h4 id="引入文件的include指令"><a href="#引入文件的include指令" class="headerlink" title="引入文件的include指令"></a>引入文件的include指令</h4><p>  include指令引入的文件既可以是HTML文件，也可以是JSP文件，还可以是其他文件（例如.js文件）。<br>  语法：<br>  &lt;%@include file= “URL”%&gt;</p></li><li><h4 id="与标签相关的的taglib指令"><a href="#与标签相关的的taglib指令" class="headerlink" title="与标签相关的的taglib指令"></a>与标签相关的的taglib指令</h4><p>  用户可以自定义新标签在页面中执行<br>  语法：<br>  &lt;%@taglib uri=”tagliburi” prefix=”tagPre”%&gt;</p></li></ul><ol start="5"><li><h3 id="JSP动作"><a href="#JSP动作" class="headerlink" title="JSP动作"></a>JSP动作</h3></li></ol><ul><li><h4 id="lt-jsp-include-gt"><a href="#lt-jsp-include-gt" class="headerlink" title="&lt; jsp:include &gt;"></a>&lt; jsp:include &gt;</h4><p>  &lt; jsp:include &gt; 动作与include指令非常相似，其作用也是引入文件到目标页面。语法：<br>  &lt; jsp:include page=”URL” flush=”true”/&gt;<br>  page为必选属性，指明了需要包含文件的路径。flush属性用于指定输出缓存是否转移到被导入文件中。<br>  jsp:include与include指令的区别：首先，jsp：include动作实在页面被访问时导入的，而include指令是由JSP引擎在编译时导入的；其次，在include指令中，被包含的文件会同主页面一块被编译为一个Servlet类文件，而jsp：include动作包含的文件跟主页面会是独立的两个文件。因此，jsp:include在效率上慢一点。</p></li><li><h4 id="lt-jsp-forward-gt"><a href="#lt-jsp-forward-gt" class="headerlink" title="&lt; jsp:forward &gt;"></a>&lt; jsp:forward &gt;</h4><p>  作用是转发请求到另外一个页面中，在请求过程中会连同请求的参数数据一起被转发到目标页面中，<br>  语法：<br>  &lt; jsp:forward page=”URL” &gt;<br>  注意，在使用jsp：foeward跳转时，浏览器地址栏的地址不发生改变</p></li><li><h4 id="lt-jsp-param-gt"><a href="#lt-jsp-param-gt" class="headerlink" title="&lt; jsp:param &gt;"></a>&lt; jsp:param &gt;</h4><p>  作用是用来传递参数信息，经常与其他两个动作搭配使用，用于传递主页面的参数到目标页面<br>  语法：<br>  &lt; jsp:param name=”参数名称” value=”参数值” &gt;</p></li></ul><ol start="6"><li><h3 id="JSP内置对象"><a href="#JSP内置对象" class="headerlink" title="JSP内置对象"></a>JSP内置对象</h3><p> 本栏中介绍JSP中内置对象的request（获取请求），response（做出响应），session（判断是否为同意客户端），application（相当于一个静态变量）</p></li></ol><ul><li><h4 id="request"><a href="#request" class="headerlink" title="request"></a>request</h4><p>  用户每访问一个页面，就会产生一个HTTP请求，而这些请求中一般包含着所需的参数或者信息。可以用request对象来获取客户端和服务器端的信息，如IP地址、服务器主机名、传递的参数名和参数值等等；</p><p>  它的一些最最常用的方法：</p><ul><li>request.getParameter(“name”); // 获取请求中指定的值，返回值为String类型</li><li>request.getParameterValues(“name”); //将同名称的参数一次性的读入String类型的数组中</li><li>request.getParameterNames(); //获取参数名称，返回枚举类型</li><li>request.getHeader(); //获取HTTP头文件中的指定值，例如accept、content-type等</li><li>request.getContextPath(); //获取项目名称，如果项目名称为根目录，则得到空的子目录</li><li>request.setCharacterEncoding(“utf-8”); //接受请求的页面中规定的字符编码</li></ul></li><li><h4 id="response"><a href="#response" class="headerlink" title="response"></a>response</h4><p>  当产生一个HTTP请求时，服务器做出响应时调用response响应包，该包实现的接口是javax.servlet.http.HttpServletResponse</p><p>  它的一些常用方法：</p><ul><li>response.setContentType(String type); //用于设置MIME类型和返回的字符集，处理响应乱码</li><li>response.sendRedirect(String url); //实现页面重定向 。。。。注意：使用sendRedirect跳转时，浏览器地址栏的访问地址改变</li></ul></li></ul><ul><li><h4 id="session"><a href="#session" class="headerlink" title="session"></a>session</h4><p>  可以用来判断是否为同一用户，还可以记录客户的连接信息等</p><p>  它的一些常用方法：</p><ul><li>session.setAttribute(String name , Object value); //将参数名和参数值存放在session对象中</li><li>session.getAttribute(String name); //返回session中与指定参数绑定的对象，如果不存在就返回null，注意进行强制类型转换</li><li>session.getId(); //获取session对象的ID值</li><li>session.removeAttribute(String name); //移除session中指定名称的参数</li><li>session.isNew(); //用于判断是否为同一用户</li><li>session.invalidate(); //使session对象失效</li></ul></li></ul><ul><li><h4 id="application"><a href="#application" class="headerlink" title="application"></a>application</h4><p>  实现接口：javax.servlet.ServletContext。application对象的生命周期从创建直到应用服务器关闭。</p><ul><li><p>application.getAttribute(String name); //获得存放在application中的含有关键字为name的对象</p></li><li><p>application.setAttribute(String name,Object obj); //将关键字name的对象obj放进application对象中</p></li><li><p>另外还有out、page、config对象，由于在开发中使用较少，这里不进行说明记载。详情可查阅资料。</p></li></ul><p>至此，JSP的语法就讲解到此，介绍的方法也是作者在学习过程中频繁使用过的对象及其方法，内置对象是使用的最多的，也是最方便的。在文章的末尾，贴上一个简单的JSP代码块</p><pre><code>&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;UTF-8&quot;&gt;&lt;!DOCTYPE HTML&gt;  &lt;html&gt;      &lt;head&gt;          &lt;title&gt;一个简单的例子&lt;/title&gt;          &lt;/head&gt;          &lt;body&gt;          &lt;%              int count = 1;              for(int i = 1; i &lt; 10; i ++){                  count += i;              }              out.print(&quot;1 到 10 的相加结果：&quot;+count);          %&gt;          &lt;/body&gt;      &lt;/html&gt;</code></pre></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Java web开发学习</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>JSP/Servlet</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>MySQL基础教程</title>
+    <link href="undefined2019/09/27/blog6/"/>
+    <url>2019/09/27/blog6/</url>
+    
+    <content type="html"><![CDATA[<p>本次介绍MySQL数据库的一些基本操作（简单建库建表，删表等）</p><a id="more"></a><p>首先呢，进入window，搜索cmd（命令提示符）以管理员身份运行，之后将路径切换到MySql的bin文件夹中。</p><h3 id="注意：一定要以管理员身份运行，否则部分操作符不可用！！"><a href="#注意：一定要以管理员身份运行，否则部分操作符不可用！！" class="headerlink" title="注意：一定要以管理员身份运行，否则部分操作符不可用！！"></a>注意：一定要以管理员身份运行，否则部分操作符不可用！！</h3><p>如图</p><p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%871.png?raw=true" srcset="/img/loading.gif" alt=""></p><p>MySql 8.0版本后登入数据库的操作</p><pre><code>  mysql -h localhost -u root -p  按回车键  输入密码进入（若没有设置密码直接按回车键）</code></pre><p>显示如下界面恭喜你成功进入MySql操作界面</p><p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%872.png?raw=true" srcset="/img/loading.gif" alt=""></p><h2 id="接下来才是真正的入门！！"><a href="#接下来才是真正的入门！！" class="headerlink" title="接下来才是真正的入门！！"></a>接下来才是真正的入门！！</h2><p>注：操作符不分大小写！<br>MySql 安装完成之后，将会在data目录下自动创建几个必要的数据库，可以使用SHOW DATABASES;语句来查看当前所有存在的数据库，输入语句如下</p><p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%873.png?raw=true" srcset="/img/loading.gif" alt=""></p><p>可以看到图中包含6个数据库，MySql是必须的，描述用户访问权限。用户经常利用test数据库做测试的工作。其它内容敬请期待……</p><p>接下来我们就可以自己开始创建一个数据库了，创建的语法格式为：</p><pre><code>   CREATE DATABASE database_name;</code></pre><p>上述语句创建了一个名字是 database_name的数据库，数据库创建好后可以使用SHOW CREATE  DATABASES  database_name\G; 查看数据库的创建信息<br>（\G是一种输出格式，会在之后的内容中讲到）</p><p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%874.png?raw=true" srcset="/img/loading.gif" alt=""></p><p>再次使用SHOW DATABASES;语句就可以看到自己创立的database_name数据库了。</p><p>既然有创建，那就有删除</p><pre><code>  DROP DATABASE database_name;</code></pre><p>注意（删除后将不能恢复，谨慎删除！）</p><p>之后介绍的是数据库引擎，使用</p><pre><code>  SHOW ENGINES \G;</code></pre><p>就能看到一系列信息，Engine一行为引擎，Support一行表示是否支持。</p><p>不同的引擎都有各自的特点，以适应不同的需求。如有些引擎储存空间大，有的速度快等等，在这里我们只做一个简单的了解，若想深入了解请自行百度。</p><p>有了数据库之后我们就要开始建立表格，类似Excel一样。</p><p>创建数据表的语句为</p><pre><code>  CREATE TABLE &lt;表名&gt; { 字段名1，数据类型 [列级别约束条件]  [默认值], 字段名2，数据类型 [列级别约束条件]  [默认值], …… }</code></pre><p>列：<br>首先创建数据库</p><pre><code>  CREATE DATABASE test_db;</code></pre><p>选择在test_db数据库中执行表格数据的创作</p><pre><code> USE test_db;</code></pre><p>创建test01表，SQL语句如下</p><pre><code> CREATE TABLE test01 ( Id      INT(11), Name   VARCHAR(25), DeptId     INT(11), Salary   FLOAT  );</code></pre><p>执行语句后我们使用SHOW TABLES；观察表格是否创建成功</p><p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%875.png?raw=true" srcset="/img/loading.gif" alt=""></p><p>用 </p><pre><code>  DESC  表名;</code></pre><p>查看表中的具体字段信息</p><p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%876.png?raw=true" srcset="/img/loading.gif" alt=""></p><p>如果不能够修改数据表中的信息那这个软件无疑是失败的，当然MySql有修改字段信息的语法，可以实现字段名的更改，字段类型改变，添加或删除字段……还有一个问题：数据库中两个不同的表能不能构成某种关系呢？</p><p>是不是有些意犹未尽，我们下次再见！</p><p>PRODUCED BY MR.YE!</p><p>THANKS MR.YANG!</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>数据库教程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>MySQL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>入门程序员必备基础（一）—— 计算机系统基础（一）</title>
+    <link href="undefined2019/09/19/blog1/"/>
+    <url>2019/09/19/blog1/</url>
+    
+    <content type="html"><![CDATA[<p>计算机系统是由硬件和软件系统组成，通过运行程序来协调工作。计算机硬件是物理装置，计算机软件是程序、数据、和相关文档的集合。</p><a id="more"></a><h2 id="1-计算机硬件"><a href="#1-计算机硬件" class="headerlink" title="1. 计算机硬件"></a>1. 计算机硬件</h2><p>  基本的计算机硬件系统有运算器、控制器、存储器、输入设备输出设备组成。</p><p>  其中运算器和控制器及相关部件集成在一起，称作中央处理单元（CPU）。CPU是硬件的核心，用于数据的加工处理，能完成各种算术、逻辑运算及来控制公能。</p><p>  存储器分为内部存储器存和外部存储器。相对来说内存速度快、容量小，一般用于临时存储计算机运行时所需的程序、数据和计算结果。外存容量大、速度慢，可用于长期保存信息。寄存器是CPU中的存储器件，速度比内存快得多。</p><p>  习惯上将CPU和主存储器的有机结合称为主机。 </p><p>  输入/输出（I/O）设备是计算机系统与外界交换信息的装置。</p><h2 id="2-计算机软件"><a href="#2-计算机软件" class="headerlink" title="2. 计算机软件"></a>2. 计算机软件</h2><p>  如果计算机系统中只有硬件系统，则只具备计算的基础，并不能真正的计算，只有将解决问题的步骤编制成机器可识别的程序并加载到计算机内存开始运行，才能完成计算。</p><p>  软件分为系统软件、中间件和应用软件。</p><ul><li>系统软件：主要功能是管理系统的硬件和软件资源；</li><li>应用软件：用于解决应用领域的具体问题；</li><li>中间件：是一类独立的系统软件或服务程序，常用来管理计算资源和网络通信。提供网络通信处理，数据存取，事务处理，Web服务，安全，跨平台等服务。</li></ul><h2 id="3-计算机分类"><a href="#3-计算机分类" class="headerlink" title="3. 计算机分类"></a>3. 计算机分类</h2><ul><li>个人移动设备（PWD）：如智能手机，平板电脑等；</li><li>桌面计算机：包括低端的上网本，台式计算机，笔记本计算机以及高配置的工作站，核心部分是基于超大规模集成电路技术的CPU。</li><li>服务器：主要提供大规模和可靠的文件及计算服务。强调可用性、可扩展性和很高的吞吐率。</li><li>集群/仓库级计算机：将数万个服务器连接在一起的大规模集群。</li><li>超级计算机：我国超级计算机主要有银河、天河、曙光、神威四个系列。</li><li>嵌入式计算机：针对某个特定的应用，对功能、可靠性、成本、体积、功耗有严格要求的计算机系统。日常生活中的微波炉，洗衣机、汽车等等都采用嵌入式计算机技术。</li></ul><h2 id="4-十进制数与字符的编码表示"><a href="#4-十进制数与字符的编码表示" class="headerlink" title="4. 十进制数与字符的编码表示"></a>4. 十进制数与字符的编码表示</h2><p>  任何字符被录入计算机后，都必须转换成二进制表示形式，称为字符编码。</p><p>  用4位二进制代码表示一位十进制数，称为二—十进制编码，简称BCD编码。根据4位代码中每一位是否有确定的权来划分，可分为有权码和无权码两类。</p><p>  应用最多的有权码是8421码，无权码中常用余3码和格雷码。（了解即可）</p><p>  更多内容持续更新中……<br>  若有什么建议，欢迎发送电子邮件留言，本人邮箱<a href="mailto:SubjuGateW@163.com" target="_blank" rel="noopener">SubjuGateW@163.com</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>程序员基础</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>计算机基础</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>MySQL 安装与配置</title>
+    <link href="undefined2019/09/19/blog2/"/>
+    <url>2019/09/19/blog2/</url>
+    
+    <content type="html"><![CDATA[<p>今天，作者来盘点一下64位Windows安装MySQL8过程中遇到的坑。<br>首先点击下载<a href="https://dev.mysql.com/downloads/mysql/" target="_blank" rel="noopener">MySQL</a></p><a id="more"></a><p>进入网站之后，首先选择Windows系统，如下图，请选择下载第一个压缩包，然后点击No thanks, just start my download.（第一坑：书上说的下载二进制版本，请不要认为需要下载第二个压缩包，因为他只有调试和测试文件，新手安装并不需要）。<img src="https://github.com/18yang/-01/blob/%E5%AE%89%E8%A3%85mysql/MySQL.png?raw=true" srcset="/img/loading.gif" alt=""></p><p>下载完之后，解压到盘文件夹，例如我的C:\web\mysql-8.0.17-winx64，开始配置环境变量，右击 此电脑 — 属性 — 高级系统设置 — 环境变量</p><p>在系统变量框中，双击path进入，选择新建，在其中加入你的文件夹的路径，如我的C:\web\mysql-8.0.17-winx64\bin    （ 。。。。。注意bin）</p><p>设置完毕之后，在mysql-8.0.17-winx64文件夹下创建my.ini配置文件<br>输入</p><pre><code>     [client]     # 设置mysql客户端默认字符集     default-character-set=utf8     [mysqld]     # 设置3306端口     port = 3306     # 设置mysql的安装目录     basedir=C:\\web\\mysql-8.0.11     # 设置 mysql数据库的数据的存放目录，MySQL 8+ 不需要以下配置，系统自己生成即可，否则有可能报错     # datadir=C:\\web\\sqldata     # 允许最大连接数     max_connections=20     # 服务端使用的字符集默认为8比特编码的latin1字符集     character-set-server=utf8     # 创建新表时将使用的默认存储引擎     default-storage-engine=INNODB</code></pre><p>接下来我们启动MySQL数据库：<br>以管理员的身份打开DOS界面<br><img src="https://github.com/18yang/-01/blob/%E5%AE%89%E8%A3%85mysql/cmd.png?raw=true" srcset="/img/loading.gif" alt=""></p><p>切换数据库文件所在（bin）目录：</p><pre><code>     cd C:\web\mysql-8.0.17-winx64\bin</code></pre><p>初始化数据库：</p><pre><code>     mysqld --initialize --console</code></pre><p>执行完之后，会出现root用户的密码，如：</p><pre><code>     ...      2018-04-20T02:35:05.464644Z 5 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: APWCY5ws&amp;hjQ     ...</code></pre><p>APWCY5ws&amp;hjQ 就是初始密码，后续登录需要用到，你也可以在登陆后修改密码。（如何修改密码也是一个坑，后面介绍）</p><p>输入以下安装命令：</p><pre><code>      mysqld install</code></pre><p>启动数据库请输入命令：</p><pre><code>     net start mysql</code></pre><p>（关闭数据库命令：net stop mysql  ，mysql为数据库名字<br>如果不知道名字，点击Windows+R  输入services.msc进入服务管理器。<br>找到MySQL开头的正在运行的服务，即为你安装的数据库名称，我的就叫MySQL）</p><p>登录MySQL<br>输入以下格式：</p><pre><code>     mysql -h 主机名 -u 用户名 -p</code></pre><p>如果只是登录主机MySQL<br>只需要输入</p><pre><code>     mysql -h localhost -u root -p</code></pre><p>回车之后，会要求输入密码，输入密码即可登录，无密码直接按回车。</p><p>登录成功后你将会看到 Welcome to the MySQL monitor… 的提示语</p><p>然后命令提示符会一直以 mysq&gt; 加一个闪烁的光标等待命令的输入, 输入 exit 或 quit 退出登录。</p><p>登录之后想要使用数据库，则必须改变密码<br>请注意自己MySQL的版本：<br>MySQL版本5.7.6版本以前用户可以使用如下命令：</p><pre><code>     mysql&gt; SET PASSWORD = PASSWORD(&#39;Xiaoming250&#39;); </code></pre><p>MySQL版本5.7.6版本开始的用户可以使用如下命令：</p><pre><code>     mysql&gt; ALTER USER USER() IDENTIFIED BY &#39;Xiaoming250&#39;;</code></pre><p>至此，数据库安装完毕，后续教程持续更新中。。。</p><p>该文引至<a href="https://www.runoob.com/mysql/mysql-install.html" target="_blank" rel="noopener">runoob</a></p><p>若有疑问或错误，欢迎发送邮件到<a href="mailto:SubjuGateW@163.com" target="_blank" rel="noopener">SubjuGateW@163.com</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>数据库教程</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>MySQL</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Windows下利用VScode搭建go语言开发环境</title>
+    <link href="undefined2019/07/15/blog5/"/>
+    <url>2019/07/15/blog5/</url>
+    
+    <content type="html"><![CDATA[<p>由于go语言不像java，C++等有现成的IDE，所以需要借助vscode</p><a id="more"></a><ol><li><p>先去官网下载<a href="https://golang.org/" target="_blank" rel="noopener">golang</a> </p><ul><li>下载适合自己电脑适配的版本，</li></ul></li><li><p>安装<a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a> </p><ul><li>git在以后的开发中非常重要，此次在安装Go Tools时会用到</li></ul></li><li><p>配置环境变量</p><ul><li>右击“此电脑–属性–高级系统设置–环境变量”<br>在用户变量中更改GOPATH  c:…/…/…/(这个为你的工作目录，在此之前新建一个文件夹在用户文件夹下)<br>系统变量中更改GOROOT  C:\Go<br>用户变量中path C:\go\bin;%GOPATH%\bin;(前面一个是go安装目录，后一个是工作目录，注意是分号)<br><img src="https://github.com/18yang/-/blob/master/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png?raw=true" srcset="/img/loading.gif" alt=""></li></ul></li><li><p>环境配置情况可通过命令go env查看（命令提示行）<br>   <img src="https://github.com/18yang/-/blob/master/go%E7%8E%AF%E5%A2%83.png?raw=true" srcset="/img/loading.gif" alt=""></p></li><li><p>在创建的工作目录下创建bin和src文件夹，安装好vscode后（若需汉化过程，自行百度），点击“查看——扩展”，或者点击快捷键Ctrl+Shift+X,搜索并下载Go,Go Outliner,Docker,Docker Compose和vscode-proto3.</p></li><li><p>vscode中点击打开工作目录，在src文件夹中新建一个文件test.go（注意后缀名为.go)写入一个简单的例子，会出现一个提示，要你安装插件，点击install all。</p></li><li><p>稍等片刻，有可能会出现failed，此时打开go（我的工作目录名字）\src\github.com\golang(没有就新建一个)，在此文件夹中打开命令提示符（在路径旁边的搜索栏中输入cmd），输入git clone <a href="https://github.com/golang/tools.git" target="_blank" rel="noopener">https://github.com/golang/tools.git</a> tools  等待克隆完毕然后复制tools文件夹放到C：\go（我的工作目录名字）\src\golang.org\x\tools(若没有就自行创建)</p></li><li><p>进入以下路径：C:\go（我的工作目录名字）\src\golang.org\x\tools\cmd\gorename 打开命令窗口输入go install。继续输入cd..   输入cd guru  输入go install。其他在vscode中安装失败的只需在窗口输入go get。<br>例如go-symbols,输入go get -u -v github.com/newhook/go-symbols(其他的只需将go-symbols代替即可)若在此步骤中出现错误，则可去vscode中下载<br>以上就是go环境配置过程，希望能对你有用，有什么好建议或问题，欢迎发送邮件，邮箱：<a href="mailto:SubjuGateW@163.com" target="_blank" rel="noopener">SubjuGateW@163.com</a></p></li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>其他</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>go</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>BIOS设置</title>
+    <link href="undefined2019/07/15/blog3/"/>
+    <url>2019/07/15/blog3/</url>
+    
+    <content type="html"><![CDATA[<p>此次介绍Windows进入BIOS界面的方法<br>笔者当初在虚拟机安装Linux系统时提示Intel VT-x被禁用，需要进入BOIS界面修改，这里介绍几种进入的方法。</p><a id="more"></a><h3 id="什么是BOIS"><a href="#什么是BOIS" class="headerlink" title="什么是BOIS"></a>什么是BOIS</h3><p>BIOS是一组固化在电脑主板上的程序，保存着计算机最重要的基本输入输出程序、开机后自检程序华人系统自启程序。</p><p>废话不多说，方法如下：</p><ol><li>按下电源键开机或者重新启动计算机，一把会出现品牌的logo界面，并且会提示进入BIOS的按键，按下按键即可进入BIOS界面。</li><li>有些联想电脑为了加快开机速度，都会关闭BIOS的通道，这是我们可以右击“此电脑”，打开属性，进入控制面板，进入如下路径<br><img src="https://github.com/18yang/-/blob/blog123/%E7%94%B5%E6%BA%90%E9%80%89%E9%A1%B9.png?raw=true" srcset="/img/loading.gif" alt=""><br>点击“更改当前不可用的设置”，关闭下面的“启用快速启动”。然后关闭你的计算机（不是重启，要关机再打开），然后按照第一种方法。</li><li>最后一种打开方式了，少数联想实在进不去可以参考，再没用那就雨我无瓜了<br>进入设置的“更新和安全”，在“恢复”选择高级启动的“立即重新启动”，<br><img src="https://github.com/18yang/-/blob/master/%E8%AE%BE%E7%BD%AE.png?raw=true" srcset="/img/loading.gif" alt=""><br>进入后选择疑难解答。<br>选择高级选项。<br>之后选择UEFI固件设置，启动，这样我们就进入了BIOS界面了。</li></ol>]]></content>
+    
+    
+    <categories>
+      
+      <category>其他</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>计算机基础</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Github常用词汇含义</title>
+    <link href="undefined2019/07/14/blog4/"/>
+    <url>2019/07/14/blog4/</url>
+    
+    <content type="html"><![CDATA[<p>常用词汇有code,Issue,Pull Request,Wiki,watch,star,Fork等等</p><a id="more"></a><p>第一篇我决定写一些Github里常见的词汇的作用，还有一点值得注意的是，在新建仓库的时候最好选择这个选项，不然会有些麻烦。<br><img src="https://github.com/18yang/-/blob/master/%E6%97%A0%E6%A0%87%E9%A2%98.png?raw=true" srcset="/img/loading.gif" alt=""></p><h2 id="Github常用词汇含义"><a href="#Github常用词汇含义" class="headerlink" title="Github常用词汇含义"></a>Github常用词汇含义</h2><p><img src="https://github.com/18yang/-/blob/master/GitHub%E9%A1%B5%E9%9D%A2.png?raw=true" srcset="/img/loading.gif" alt=""></p><h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><pre><code>显示该仓库的文件列表，仓库名下方是该仓库的简单说明和URL。</code></pre><h3 id="Issue"><a href="#Issue" class="headerlink" title="Issue"></a>Issue</h3><pre><code>用于BUG报告、功能添加、方向性讨论等，将这些以Issue形式进行管理。pull Request时也会建立Issue。旁边显示的数字是当前处于Open状态的Issne数。</code></pre><h3 id="Pull-Requests"><a href="#Pull-Requests" class="headerlink" title="Pull Requests"></a>Pull Requests</h3><pre><code>代码的更改和讨论都可以在这进行。旁边的数字表示尚未Close的Pull requests的数量。</code></pre><h3 id="Wiki"><a href="#Wiki" class="headerlink" title="Wiki"></a>Wiki</h3><pre><code>用于记录开发者之间应该共享的信息或软件文档。旁边的数字表示页面的数量。</code></pre><h3 id="Settings"><a href="#Settings" class="headerlink" title="Settings"></a>Settings</h3><pre><code>这里可以更改当前仓库的设置。用户必须拥有更改设置的权限才可以看到这个菜单。</code></pre><h3 id="Insights"><a href="#Insights" class="headerlink" title="Insights"></a>Insights</h3><p>只讲其中的三个：</p><ol><li><h5 id="Pulse"><a href="#Pulse" class="headerlink" title="Pulse"></a>Pulse</h5> 显示仓库最近的活动信息。</li><li><h5 id="Graphs"><a href="#Graphs" class="headerlink" title="Graphs"></a>Graphs</h5> 以图表形式显示该仓库的各项指标。</li><li><h5 id="Network"><a href="#Network" class="headerlink" title="Network"></a>Network</h5> 以图表形式直观的显示出当前仓库的状态及Fork出的仓库的状态。</li></ol><h3 id="SSH-clone-URL"><a href="#SSH-clone-URL" class="headerlink" title="SSH clone URL"></a>SSH clone URL</h3><pre><code>clone仓库所需的URL，右击鼠标可以复制。点击HTTPS、SSH、Subversion图标可以切换到相应的协议。</code></pre><h3 id="CLone-in-Desktop"><a href="#CLone-in-Desktop" class="headerlink" title="CLone in Desktop"></a>CLone in Desktop</h3><pre><code>启动Github专用的客户端应用程序并进行clone，一般可以不用。</code></pre><h3 id="Download-ZIP"><a href="#Download-ZIP" class="headerlink" title="Download ZIP"></a>Download ZIP</h3><pre><code>将当前正在阅览的分支中的文件以ZIP形式打包下载，这种方式与Git的clone不同，只是单纯将文件下载到本地，无法通过Git查看日志或对仓库进行更改。</code></pre><h3 id="commits"><a href="#commits" class="headerlink" title="commits"></a>commits</h3><pre><code>在这里可以查看当前分支的提交历史。左侧的数字表示提交数。</code></pre><h3 id="branches"><a href="#branches" class="headerlink" title="branches"></a>branches</h3><pre><code>可以查看仓库的分支列表。左侧数字表示当前拥有的分支数。</code></pre><h3 id="releases"><a href="#releases" class="headerlink" title="releases"></a>releases</h3><pre><code>显示仓库的标签列表，同时可以将标签加入是的文件以归档形式（ZIP，tag.gz)下载到本地。</code></pre><h3 id="contributors"><a href="#contributors" class="headerlink" title="contributors"></a>contributors</h3><pre><code>显示对该仓库进行过提交的程序员名单。如果你也对该仓库发送过Pull Requestb并且被采纳，那么在这里就能找到自己的名字。</code></pre><h3 id="Watch"><a href="#Watch" class="headerlink" title="Watch"></a>Watch</h3><pre><code>点击watch可以查看该仓库的内容，今后该仓库的更新信息会显示在用户的公共活动中。</code></pre><h3 id="Star"><a href="#Star" class="headerlink" title="Star"></a>Star</h3><pre><code>Star就像一个关注键，你可以在star列表中查看到该仓库，这也是仓库热门程度的指标之一。</code></pre><h3 id="Fork"><a href="#Fork" class="headerlink" title="Fork"></a>Fork</h3><pre><code>Fork表示参与这个仓库开发。</code></pre><p>此次介绍到这里，若有什么建议，欢迎发送电子邮件留言，本人邮箱<a href="mailto:SubjuGateW@163.com" target="_blank" rel="noopener">SubjuGateW@163.com</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>其他</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Github</tag>
+      
+    </tags>
     
   </entry>
   

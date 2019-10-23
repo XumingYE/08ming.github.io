@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="08ming">
   <meta name="keywords" content="">
-  <title>分类 ~ ming&#39;s blog</title>
+  <title>Windows下利用VScode搭建go语言开发环境 ~ ming&#39;s blog</title>
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
   <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
   <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -112,6 +112,9 @@
             </span>
 
             
+              <br>
+              <p class="mt-3">星期一, 七月 15日 2019, 7:56 早上</p>
+            
           </div>
 
           
@@ -122,22 +125,92 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto">
+          <div class="markdown-body">
+            <p>由于go语言不像java，C++等有现成的IDE，所以需要借助vscode</p>
+<a id="more"></a>
+<ol>
+<li><p>先去官网下载<a href="https://golang.org/" target="_blank" rel="noopener">golang</a> </p>
+<ul>
+<li>下载适合自己电脑适配的版本，</li>
+</ul>
+</li>
+<li><p>安装<a href="https://git-scm.com/" target="_blank" rel="noopener">Git</a> </p>
+<ul>
+<li>git在以后的开发中非常重要，此次在安装Go Tools时会用到</li>
+</ul>
+</li>
+<li><p>配置环境变量</p>
+<ul>
+<li>右击“此电脑–属性–高级系统设置–环境变量”<br>在用户变量中更改GOPATH  c:…/…/…/(这个为你的工作目录，在此之前新建一个文件夹在用户文件夹下)<br>系统变量中更改GOROOT  C:\Go<br>用户变量中path C:\go\bin;%GOPATH%\bin;(前面一个是go安装目录，后一个是工作目录，注意是分号)<br><img src="https://github.com/18yang/-/blob/master/%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F.png?raw=true" srcset="/img/loading.gif" alt=""></li>
+</ul>
+</li>
+<li><p>环境配置情况可通过命令go env查看（命令提示行）<br>   <img src="https://github.com/18yang/-/blob/master/go%E7%8E%AF%E5%A2%83.png?raw=true" srcset="/img/loading.gif" alt=""></p>
+</li>
+<li><p>在创建的工作目录下创建bin和src文件夹，安装好vscode后（若需汉化过程，自行百度），点击“查看——扩展”，或者点击快捷键Ctrl+Shift+X,搜索并下载Go,Go Outliner,Docker,Docker Compose和vscode-proto3.</p>
+</li>
+<li><p>vscode中点击打开工作目录，在src文件夹中新建一个文件test.go（注意后缀名为.go)写入一个简单的例子，会出现一个提示，要你安装插件，点击install all。</p>
+</li>
+<li><p>稍等片刻，有可能会出现failed，此时打开go（我的工作目录名字）\src\github.com\golang(没有就新建一个)，在此文件夹中打开命令提示符（在路径旁边的搜索栏中输入cmd），输入git clone <a href="https://github.com/golang/tools.git" target="_blank" rel="noopener">https://github.com/golang/tools.git</a> tools  等待克隆完毕然后复制tools文件夹放到C：\go（我的工作目录名字）\src\golang.org\x\tools(若没有就自行创建)</p>
+</li>
+<li><p>进入以下路径：C:\go（我的工作目录名字）\src\golang.org\x\tools\cmd\gorename 打开命令窗口输入go install。继续输入cd..   输入cd guru  输入go install。其他在vscode中安装失败的只需在窗口输入go get。<br>例如go-symbols,输入go get -u -v github.com/newhook/go-symbols(其他的只需将go-symbols代替即可)若在此步骤中出现错误，则可去vscode中下载<br>以上就是go环境配置过程，希望能对你有用，有什么好建议或问题，欢迎发送邮件，邮箱：<a href="mailto:SubjuGateW@163.com" target="_blank" rel="noopener">SubjuGateW@163.com</a></p>
+</li>
+</ol>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            
+              <p>
+                <i class="iconfont icon-inbox"></i>
                 
-
-<ul class="category-tree-list"><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/Java-web%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/">Java web开发学习</a><span class="category-tree-list-count">3</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><span class="category-tree-list-count">3</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%99%E7%A8%8B/">数据库教程</a><span class="category-tree-list-count">2</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%9F%BA%E7%A1%80/">程序员基础</a><span class="category-tree-list-count">1</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/">算法基础</a><span class="category-tree-list-count">1</span></li></ul>
-
-
-              </div>
-            </div>
+                  <a class="hover-with-bg" href="/categories/%E5%85%B6%E4%BB%96">其他</a>
+                  &nbsp;
+                
+              </p>
+            
+            <p>
+              <i class="iconfont icon-tag"></i>
+              
+                <a class="hover-with-bg" href="/tags/go">go</a>
+              
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -191,6 +264,11 @@
   <script src="/js/lazyload.js" ></script>
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
   <script src="/lib/prettify/prettify.min.js" ></script>
   <script>
@@ -206,7 +284,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "分类&nbsp;",
+        "Windows下利用VScode搭建go语言开发环境&nbsp;",
       ],
       cursorChar: "",
       typeSpeed: 1000,

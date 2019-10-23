@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="description" content="">
+  <meta name="author" content="08ming">
+  <meta name="keywords" content="">
+  <title>JSP常用语法 ~ ming&#39;s blog</title>
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+  <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+  <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+  
+    <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+  
+  <link rel="stylesheet" href="/css/main.css"  >
+
+  
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?Key";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>ming&#39;s blog</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/archives/">Archives</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/categories/">Categories</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/tags/">Tags</a>
+          </li>
+        
+          
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/about/">About</a>
+          </li>
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+
+</nav>
+
+    <div class="view intro-2" id="background"
+         style="background: url('/img/default.png')no-repeat center center;
+           background-size: cover;
+           background-attachment: fixed;">
+      <div class="full-bg-img">
+        <div class="mask rgba-black-light flex-center">
+          <div class="container text-center white-text fadeInUp">
+            <span class="h2" id="subtitle">
+              
+            </span>
+
+            
+              <br>
+              <p class="mt-3">星期日, 十月 20日 2019, 7:08 晚上</p>
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto">
+          <div class="markdown-body">
+            <h2 id="JSP基础语法——与编写HTML一样简单"><a href="#JSP基础语法——与编写HTML一样简单" class="headerlink" title="JSP基础语法——与编写HTML一样简单"></a>JSP基础语法——与编写HTML一样简单</h2><ol>
+<li><h3 id="JSP简介"><a href="#JSP简介" class="headerlink" title="JSP简介"></a>JSP简介</h3><p> JSP技术是由SUN公司提出，于1999年推出的一款建设动态网页的方法。它是基于Java Servlet技术来开发动态的、高性能的Web应用程序。</p>
+</li>
+</ol>
+<a id="more"></a>
+
+<ol start="2">
+<li><h3 id="编写JSP所用的环境"><a href="#编写JSP所用的环境" class="headerlink" title="编写JSP所用的环境"></a>编写JSP所用的环境</h3><p> JDK8，Tomcat9服务器，和Intellij IDEA或者eclipse开发工具。</p>
+</li>
+<li><h3 id="JSP常用语法"><a href="#JSP常用语法" class="headerlink" title="JSP常用语法"></a>JSP常用语法</h3></li>
+</ol>
+<ul>
+<li><h4 id="JSP注释"><a href="#JSP注释" class="headerlink" title="JSP注释"></a>JSP注释</h4><ul>
+<li>HTML中常用的注释符</li>
+<li>JSP的注释符  “&lt;%– 注释的内容 –%&gt;”</li>
+<li>嵌套在其中的java语句注释符 “//”</li>
+</ul>
+</li>
+<li><h4 id="JSP声明"><a href="#JSP声明" class="headerlink" title="JSP声明"></a>JSP声明</h4><p>  &lt;%！变量定义/方法定义/类 %&gt;</p>
+<p>  &lt; jsp:declaration &gt;变量定义/方法定义/类&lt;/&gt;<br>  第二种方法已经很少使用，不提倡，在此只做了解</p>
+</li>
+<li><h4 id="JSP表达式"><a href="#JSP表达式" class="headerlink" title="JSP表达式"></a>JSP表达式</h4><p>  &lt;%= 变量或者表达式 %&gt;</p>
+<p>  &lt; jsp:expression &gt;变量或者表达式&lt; /jsp:expression &gt;<br>  第二种方法已经很少使用，不提倡，在此只做了解</p>
+</li>
+</ul>
+<ol start="4">
+<li><h3 id="JSP指令"><a href="#JSP指令" class="headerlink" title="JSP指令"></a>JSP指令</h3></li>
+</ol>
+<ul>
+<li><h4 id="与页面相关的page指令"><a href="#与页面相关的page指令" class="headerlink" title="与页面相关的page指令"></a>与页面相关的page指令</h4><p>  page 指令用来设置页面的属性和相关功能，其语法为：<br>  &lt;%@ page attribute 1 = “value 1”[…attribute n= “value n”]%&gt;<br>  page指令使用最多的属性是language（页面使用语言）、import（用来声明需要导入的包）、pageEncoding（设置页面的编码）。</p>
+<p>  例如： &lt;%@ page language=”java” import=”java.util.*” pageEncoding=”utf-8” %&gt;</p>
+</li>
+<li><h4 id="引入文件的include指令"><a href="#引入文件的include指令" class="headerlink" title="引入文件的include指令"></a>引入文件的include指令</h4><p>  include指令引入的文件既可以是HTML文件，也可以是JSP文件，还可以是其他文件（例如.js文件）。<br>  语法：<br>  &lt;%@include file= “URL”%&gt;</p>
+</li>
+<li><h4 id="与标签相关的的taglib指令"><a href="#与标签相关的的taglib指令" class="headerlink" title="与标签相关的的taglib指令"></a>与标签相关的的taglib指令</h4><p>  用户可以自定义新标签在页面中执行<br>  语法：<br>  &lt;%@taglib uri=”tagliburi” prefix=”tagPre”%&gt;</p>
+</li>
+</ul>
+<ol start="5">
+<li><h3 id="JSP动作"><a href="#JSP动作" class="headerlink" title="JSP动作"></a>JSP动作</h3></li>
+</ol>
+<ul>
+<li><h4 id="lt-jsp-include-gt"><a href="#lt-jsp-include-gt" class="headerlink" title="&lt; jsp:include &gt;"></a>&lt; jsp:include &gt;</h4><p>  &lt; jsp:include &gt; 动作与include指令非常相似，其作用也是引入文件到目标页面。语法：<br>  &lt; jsp:include page=”URL” flush=”true”/&gt;<br>  page为必选属性，指明了需要包含文件的路径。flush属性用于指定输出缓存是否转移到被导入文件中。<br>  jsp:include与include指令的区别：首先，jsp：include动作实在页面被访问时导入的，而include指令是由JSP引擎在编译时导入的；其次，在include指令中，被包含的文件会同主页面一块被编译为一个Servlet类文件，而jsp：include动作包含的文件跟主页面会是独立的两个文件。因此，jsp:include在效率上慢一点。</p>
+</li>
+<li><h4 id="lt-jsp-forward-gt"><a href="#lt-jsp-forward-gt" class="headerlink" title="&lt; jsp:forward &gt;"></a>&lt; jsp:forward &gt;</h4><p>  作用是转发请求到另外一个页面中，在请求过程中会连同请求的参数数据一起被转发到目标页面中，<br>  语法：<br>  &lt; jsp:forward page=”URL” &gt;<br>  注意，在使用jsp：foeward跳转时，浏览器地址栏的地址不发生改变</p>
+</li>
+<li><h4 id="lt-jsp-param-gt"><a href="#lt-jsp-param-gt" class="headerlink" title="&lt; jsp:param &gt;"></a>&lt; jsp:param &gt;</h4><p>  作用是用来传递参数信息，经常与其他两个动作搭配使用，用于传递主页面的参数到目标页面<br>  语法：<br>  &lt; jsp:param name=”参数名称” value=”参数值” &gt;</p>
+</li>
+</ul>
+<ol start="6">
+<li><h3 id="JSP内置对象"><a href="#JSP内置对象" class="headerlink" title="JSP内置对象"></a>JSP内置对象</h3><p> 本栏中介绍JSP中内置对象的request（获取请求），response（做出响应），session（判断是否为同意客户端），application（相当于一个静态变量）</p>
+</li>
+</ol>
+<ul>
+<li><h4 id="request"><a href="#request" class="headerlink" title="request"></a>request</h4><p>  用户每访问一个页面，就会产生一个HTTP请求，而这些请求中一般包含着所需的参数或者信息。可以用request对象来获取客户端和服务器端的信息，如IP地址、服务器主机名、传递的参数名和参数值等等；</p>
+<p>  它的一些最最常用的方法：</p>
+<ul>
+<li>request.getParameter(“name”); // 获取请求中指定的值，返回值为String类型</li>
+<li>request.getParameterValues(“name”); //将同名称的参数一次性的读入String类型的数组中</li>
+<li>request.getParameterNames(); //获取参数名称，返回枚举类型</li>
+<li>request.getHeader(); //获取HTTP头文件中的指定值，例如accept、content-type等</li>
+<li>request.getContextPath(); //获取项目名称，如果项目名称为根目录，则得到空的子目录</li>
+<li>request.setCharacterEncoding(“utf-8”); //接受请求的页面中规定的字符编码</li>
+</ul>
+</li>
+<li><h4 id="response"><a href="#response" class="headerlink" title="response"></a>response</h4><p>  当产生一个HTTP请求时，服务器做出响应时调用response响应包，该包实现的接口是javax.servlet.http.HttpServletResponse</p>
+<p>  它的一些常用方法：</p>
+<ul>
+<li>response.setContentType(String type); //用于设置MIME类型和返回的字符集，处理响应乱码</li>
+<li>response.sendRedirect(String url); //实现页面重定向 。。。。注意：使用sendRedirect跳转时，浏览器地址栏的访问地址改变</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><h4 id="session"><a href="#session" class="headerlink" title="session"></a>session</h4><p>  可以用来判断是否为同一用户，还可以记录客户的连接信息等</p>
+<p>  它的一些常用方法：</p>
+<ul>
+<li>session.setAttribute(String name , Object value); //将参数名和参数值存放在session对象中</li>
+<li>session.getAttribute(String name); //返回session中与指定参数绑定的对象，如果不存在就返回null，注意进行强制类型转换</li>
+<li>session.getId(); //获取session对象的ID值</li>
+<li>session.removeAttribute(String name); //移除session中指定名称的参数</li>
+<li>session.isNew(); //用于判断是否为同一用户</li>
+<li>session.invalidate(); //使session对象失效</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><h4 id="application"><a href="#application" class="headerlink" title="application"></a>application</h4><p>  实现接口：javax.servlet.ServletContext。application对象的生命周期从创建直到应用服务器关闭。</p>
+<ul>
+<li><p>application.getAttribute(String name); //获得存放在application中的含有关键字为name的对象</p>
+</li>
+<li><p>application.setAttribute(String name,Object obj); //将关键字name的对象obj放进application对象中</p>
+</li>
+<li><p>另外还有out、page、config对象，由于在开发中使用较少，这里不进行说明记载。详情可查阅资料。</p>
+</li>
+</ul>
+<p>至此，JSP的语法就讲解到此，介绍的方法也是作者在学习过程中频繁使用过的对象及其方法，内置对象是使用的最多的，也是最方便的。在文章的末尾，贴上一个简单的JSP代码块</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; pageEncoding=&quot;UTF-8&quot;&gt;
+&lt;!DOCTYPE HTML&gt;
+  &lt;html&gt;
+      &lt;head&gt;
+          &lt;title&gt;一个简单的例子&lt;/title&gt;
+          &lt;/head&gt;
+          &lt;body&gt;
+          &lt;%
+              int count = 1;
+              for(int i = 1; i &lt; 10; i ++){
+                  count += i;
+              }
+              out.print(&quot;1 到 10 的相加结果：&quot;+count);
+          %&gt;
+          &lt;/body&gt;
+      &lt;/html&gt;</code></pre></li>
+</ul>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            
+              <p>
+                <i class="iconfont icon-inbox"></i>
+                
+                  <a class="hover-with-bg" href="/categories/Java%20web%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0">Java web开发学习</a>
+                  &nbsp;
+                
+              </p>
+            
+            <p>
+              <i class="iconfont icon-tag"></i>
+              
+                <a class="hover-with-bg" href="/tags/JSP/Servlet">JSP/Servlet</a>
+              
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
+    
+  </main>
+
+  
+    <a class="z-depth-1" id="scroll-top-button" href="#" role="button">
+      <i class="fa fa-chevron-up scroll-top-arrow" aria-hidden="true"></i>
+    </a>
+  
+
+  
+    <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+  
+
+  <footer class="mt-5">
+  <div class="text-center py-3">
+    <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><b>Hexo</b></a>
+    <i class="iconfont icon-love"></i>
+    <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
+    <br>
+    
+  </div>
+</footer>
+
+<!-- SCRIPTS -->
+<script src="/lib/jquery/jquery.min.js" ></script>
+<script src="/lib/popper/popper.min.js" ></script>
+<script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
+<script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
+<script src="/js/main.js" ></script>
+
+  <script src="/js/lazyload.js" ></script>
+
+
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
+
+  <script src="/lib/prettify/prettify.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      $('pre').addClass('prettyprint linenums');
+      prettyPrint();
+    })
+  </script>
+
+
+  <script src="/lib/typed/typed.min.js" ></script>
+  <script>
+    var typed = new Typed('#subtitle', {
+      strings: [
+        '  ',
+        "JSP常用语法&nbsp;",
+      ],
+      cursorChar: "",
+      typeSpeed: 1000,
+      loop: false,
+    });
+    typed.stop();
+    $(document).ready(function () {
+      $(".typed-cursor").addClass("h2");
+      typed.start();
+    });
+  </script>
+
+
+  <script src="/lib/anchor/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "false",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
+
+
+  <script src="/js/local-search.js" ></script>
+  <script>
+    var path = "/local-search.xml";
+    var inputArea = document.querySelector("#local-search-input");
+    inputArea.onclick = function () {
+      getSearchFile(path);
+      this.onclick = null
+    }
+  </script>
+
+
+
+  <script>
+    if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) || (/Safari/i.test(navigator.userAgent) && !/Chrome/i.test(navigator.userAgent))) {
+      $("#background").css("background-attachment", "scroll");
+    }
+  </script>
+
+</body>
+</html>

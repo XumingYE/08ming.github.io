@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="08ming">
   <meta name="keywords" content="">
-  <title>分类 ~ ming&#39;s blog</title>
+  <title>MySQL基础教程 ~ ming&#39;s blog</title>
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
   <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
   <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -112,6 +112,9 @@
             </span>
 
             
+              <br>
+              <p class="mt-3">星期五, 九月 27日 2019, 7:27 晚上</p>
+            
           </div>
 
           
@@ -122,22 +125,109 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto">
+          <div class="markdown-body">
+            <p>本次介绍MySQL数据库的一些基本操作（简单建库建表，删表等）</p>
+<a id="more"></a>
+<p>首先呢，进入window，搜索cmd（命令提示符）以管理员身份运行，之后将路径切换到MySql的bin文件夹中。</p>
+<h3 id="注意：一定要以管理员身份运行，否则部分操作符不可用！！"><a href="#注意：一定要以管理员身份运行，否则部分操作符不可用！！" class="headerlink" title="注意：一定要以管理员身份运行，否则部分操作符不可用！！"></a>注意：一定要以管理员身份运行，否则部分操作符不可用！！</h3><p>如图</p>
+<p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%871.png?raw=true" srcset="/img/loading.gif" alt=""></p>
+<p>MySql 8.0版本后登入数据库的操作</p>
+<pre><code>  mysql -h localhost -u root -p  按回车键
+  输入密码进入（若没有设置密码直接按回车键）</code></pre><p>显示如下界面恭喜你成功进入MySql操作界面</p>
+<p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%872.png?raw=true" srcset="/img/loading.gif" alt=""></p>
+<h2 id="接下来才是真正的入门！！"><a href="#接下来才是真正的入门！！" class="headerlink" title="接下来才是真正的入门！！"></a>接下来才是真正的入门！！</h2><p>注：操作符不分大小写！<br>MySql 安装完成之后，将会在data目录下自动创建几个必要的数据库，可以使用SHOW DATABASES;语句来查看当前所有存在的数据库，输入语句如下</p>
+<p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%873.png?raw=true" srcset="/img/loading.gif" alt=""></p>
+<p>可以看到图中包含6个数据库，MySql是必须的，描述用户访问权限。用户经常利用test数据库做测试的工作。其它内容敬请期待……</p>
+<p>接下来我们就可以自己开始创建一个数据库了，创建的语法格式为：</p>
+<pre><code>   CREATE DATABASE database_name;</code></pre><p>上述语句创建了一个名字是 database_name的数据库，数据库创建好后可以使用SHOW CREATE  DATABASES  database_name\G; 查看数据库的创建信息<br>（\G是一种输出格式，会在之后的内容中讲到）</p>
+<p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%874.png?raw=true" srcset="/img/loading.gif" alt=""></p>
+<p>再次使用SHOW DATABASES;语句就可以看到自己创立的database_name数据库了。</p>
+<p>既然有创建，那就有删除</p>
+<pre><code>  DROP DATABASE database_name;</code></pre><p>注意（删除后将不能恢复，谨慎删除！）</p>
+<p>之后介绍的是数据库引擎，使用</p>
+<pre><code>  SHOW ENGINES \G;</code></pre><p>就能看到一系列信息，Engine一行为引擎，Support一行表示是否支持。</p>
+<p>不同的引擎都有各自的特点，以适应不同的需求。如有些引擎储存空间大，有的速度快等等，在这里我们只做一个简单的了解，若想深入了解请自行百度。</p>
+<p>有了数据库之后我们就要开始建立表格，类似Excel一样。</p>
+<p>创建数据表的语句为</p>
+<pre><code>  CREATE TABLE &lt;表名&gt;
+ {
+ 字段名1，数据类型 [列级别约束条件]  [默认值],
+ 字段名2，数据类型 [列级别约束条件]  [默认值],
+ ……
+ }</code></pre><p>列：<br>首先创建数据库</p>
+<pre><code>  CREATE DATABASE test_db;</code></pre><p>选择在test_db数据库中执行表格数据的创作</p>
+<pre><code> USE test_db;</code></pre><p>创建test01表，SQL语句如下</p>
+<pre><code> CREATE TABLE test01
+ (
+ Id      INT(11),
+ Name   VARCHAR(25),
+ DeptId     INT(11),
+ Salary   FLOAT 
+ );</code></pre><p>执行语句后我们使用SHOW TABLES；观察表格是否创建成功</p>
+<p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%875.png?raw=true" srcset="/img/loading.gif" alt=""></p>
+<p>用 </p>
+<pre><code>  DESC  表名;</code></pre><p>查看表中的具体字段信息</p>
+<p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%876.png?raw=true" srcset="/img/loading.gif" alt=""></p>
+<p>如果不能够修改数据表中的信息那这个软件无疑是失败的，当然MySql有修改字段信息的语法，可以实现字段名的更改，字段类型改变，添加或删除字段……还有一个问题：数据库中两个不同的表能不能构成某种关系呢？</p>
+<p>是不是有些意犹未尽，我们下次再见！</p>
+<p>PRODUCED BY MR.YE!</p>
+<p>THANKS MR.YANG!</p>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            
+              <p>
+                <i class="iconfont icon-inbox"></i>
                 
-
-<ul class="category-tree-list"><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/Java-web%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/">Java web开发学习</a><span class="category-tree-list-count">3</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><span class="category-tree-list-count">3</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%99%E7%A8%8B/">数据库教程</a><span class="category-tree-list-count">2</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%9F%BA%E7%A1%80/">程序员基础</a><span class="category-tree-list-count">1</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/">算法基础</a><span class="category-tree-list-count">1</span></li></ul>
-
-
-              </div>
-            </div>
+                  <a class="hover-with-bg" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%99%E7%A8%8B">数据库教程</a>
+                  &nbsp;
+                
+              </p>
+            
+            <p>
+              <i class="iconfont icon-tag"></i>
+              
+                <a class="hover-with-bg" href="/tags/MySQL">MySQL</a>
+              
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -191,6 +281,11 @@
   <script src="/js/lazyload.js" ></script>
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
   <script src="/lib/prettify/prettify.min.js" ></script>
   <script>
@@ -206,7 +301,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "分类&nbsp;",
+        "MySQL基础教程&nbsp;",
       ],
       cursorChar: "",
       typeSpeed: 1000,

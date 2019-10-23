@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="08ming">
   <meta name="keywords" content="">
-  <title>分类 ~ ming&#39;s blog</title>
+  <title>request获取数据 ~ ming&#39;s blog</title>
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
   <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
   <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -112,6 +112,9 @@
             </span>
 
             
+              <br>
+              <p class="mt-3">星期一, 十月 21日 2019, 7:06 晚上</p>
+            
           </div>
 
           
@@ -122,22 +125,135 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
+      
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto">
+          <div class="markdown-body">
+            <h2 id="用户端界面发送请求–-gt-响应端界面"><a href="#用户端界面发送请求–-gt-响应端界面" class="headerlink" title="用户端界面发送请求–&gt;响应端界面"></a>用户端界面发送请求–&gt;响应端界面</h2><h4 id="作者：叶某"><a href="#作者：叶某" class="headerlink" title="作者：叶某"></a>作者：叶某</h4><a id="more"></a>
+
+<ol>
+<li><h3 id="基本的网页响应形式"><a href="#基本的网页响应形式" class="headerlink" title="基本的网页响应形式"></a>基本的网页响应形式</h3></li>
+</ol>
+<blockquote>
+<p>用户端界面发送请求–&gt;响应端界面</p>
+</blockquote>
+<ol start="2">
+<li><h3 id="request应用实例"><a href="#request应用实例" class="headerlink" title="request应用实例"></a>request应用实例</h3></li>
+</ol>
+<ul>
+<li><p>首先新建一个文件名为login.jsp文件，源码如下</p>
+<pre><code>  &lt;%@pagecontentType=&quot;text/html;charset=UTF-8&quot;language=&quot;java&quot;%&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+  &lt;title&gt;getRequest.jsp&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;div style=&quot;text-align:center&quot;&gt;
+  &lt;forma ction=&quot;响应的界面名称&quot;method=&quot;响应方式有两种1.post2.get&quot;一般为post&gt;
+
+  &lt;tr&gt;
+  &lt;td&gt;用户名称&lt;/td&gt;
+  &lt;td&gt;&lt;input name=&quot;usename&quot;type=&quot;text&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+  &lt;td&gt;用户密码&lt;/td&gt;
+  &lt;td&gt;&lt;input name=&quot;password&quot;type=&quot;password&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+  &lt;td&gt;&lt;input type=&quot;submit&quot;value=&quot;登录&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;/form&gt;
+  &lt;/div&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre></li>
+<li><p>如上文中的<code>&lt;input&gt;</code>属性中的name就是响应端能够得到的数据的名称，type则为该数据的数据类型（如：设置为”password”，用户密码输入时的内容将用”*”代替显示）其中我们把用户输入的数据放入<form>标签中，这样当用户点击type为submit按钮界面就会跳转到响应的页面中。</p>
+<br/>
+<br/></li>
+<li><p>如图所示</p>
+</li>
+</ul>
+<blockquote>
+<p><img src="https://github.com/18yang/-01/blob/%E5%AE%89%E8%A3%85mysql/example01.png?raw=true" srcset="/img/loading.gif" alt=""></p>
+</blockquote>
+<ol start="3">
+<li><h3 id="取得用户输入的数据"><a href="#取得用户输入的数据" class="headerlink" title="取得用户输入的数据"></a>取得用户输入的数据</h3></li>
+</ol>
+<ul>
+<li>首先新建一个名为”getInfo.jsp”JSP文件,源码如下：<pre><code> &lt;%@pagecontentType=&quot;text/html;charset=UTF-8&quot;language=&quot;java&quot;%&gt;
+ &lt;html&gt;
+ &lt;head&gt;
+ &lt;title&gt;getInfo.jsp&lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+ &lt;%
+ String name=request.getParameter(&quot;usename&quot;);
+ String password=request.getParameter(&quot;password&quot;);
+ %&gt;
+ &lt;/body&gt;
+ &lt;/html&gt;
+</code></pre></li>
+</ul>
+<pre><code>+     这样用户的输入数据就保存在name和password中了，你就可以利用用户给出的数据执行一些操作。
+  &lt;br/&gt;
+   &lt;br/&gt;
++     关于数据的存储还有创建对象的方式，详细会在下次内容中讲解。
+
+
+</code></pre>
+            <hr>
+          </div>
+          <br>
+          <div>
+            
+              <p>
+                <i class="iconfont icon-inbox"></i>
                 
-
-<ul class="category-tree-list"><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/Java-web%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0/">Java web开发学习</a><span class="category-tree-list-count">3</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E5%85%B6%E4%BB%96/">其他</a><span class="category-tree-list-count">3</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93%E6%95%99%E7%A8%8B/">数据库教程</a><span class="category-tree-list-count">2</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%9F%BA%E7%A1%80/">程序员基础</a><span class="category-tree-list-count">1</span></li><li class="category-tree-list-item"><a class="category-tree-list-link" href="/categories/%E7%AE%97%E6%B3%95%E5%9F%BA%E7%A1%80/">算法基础</a><span class="category-tree-list-count">1</span></li></ul>
-
-
-              </div>
-            </div>
+                  <a class="hover-with-bg" href="/categories/Java%20web%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0">Java web开发学习</a>
+                  &nbsp;
+                
+              </p>
+            
+            <p>
+              <i class="iconfont icon-tag"></i>
+              
+                <a class="hover-with-bg" href="/tags/JSP/Servlet">JSP/Servlet</a>
+              
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -191,6 +307,11 @@
   <script src="/js/lazyload.js" ></script>
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
   <script src="/lib/prettify/prettify.min.js" ></script>
   <script>
@@ -206,7 +327,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "分类&nbsp;",
+        "request获取数据&nbsp;",
       ],
       cursorChar: "",
       typeSpeed: 1000,
