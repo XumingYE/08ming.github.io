@@ -138,17 +138,17 @@
 <a id="more"></a>
 <p>首先呢，进入window，搜索cmd（命令提示符）以管理员身份运行，之后将路径切换到MySql的bin文件夹中。</p>
 <h3 id="注意：一定要以管理员身份运行，否则部分操作符不可用！！"><a href="#注意：一定要以管理员身份运行，否则部分操作符不可用！！" class="headerlink" title="注意：一定要以管理员身份运行，否则部分操作符不可用！！"></a>注意：一定要以管理员身份运行，否则部分操作符不可用！！</h3><p>如图</p>
-<p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%871.png?raw=true" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%871.png?raw=true" alt=""></p>
 <p>MySql 8.0版本后登入数据库的操作</p>
 <pre><code>  mysql -h localhost -u root -p  按回车键
   输入密码进入（若没有设置密码直接按回车键）</code></pre><p>显示如下界面恭喜你成功进入MySql操作界面</p>
-<p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%872.png?raw=true" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%872.png?raw=true" alt=""></p>
 <h2 id="接下来才是真正的入门！！"><a href="#接下来才是真正的入门！！" class="headerlink" title="接下来才是真正的入门！！"></a>接下来才是真正的入门！！</h2><p>注：操作符不分大小写！<br>MySql 安装完成之后，将会在data目录下自动创建几个必要的数据库，可以使用SHOW DATABASES;语句来查看当前所有存在的数据库，输入语句如下</p>
-<p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%873.png?raw=true" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%873.png?raw=true" alt=""></p>
 <p>可以看到图中包含6个数据库，MySql是必须的，描述用户访问权限。用户经常利用test数据库做测试的工作。其它内容敬请期待……</p>
 <p>接下来我们就可以自己开始创建一个数据库了，创建的语法格式为：</p>
 <pre><code>   CREATE DATABASE database_name;</code></pre><p>上述语句创建了一个名字是 database_name的数据库，数据库创建好后可以使用SHOW CREATE  DATABASES  database_name\G; 查看数据库的创建信息<br>（\G是一种输出格式，会在之后的内容中讲到）</p>
-<p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%874.png?raw=true" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%874.png?raw=true" alt=""></p>
 <p>再次使用SHOW DATABASES;语句就可以看到自己创立的database_name数据库了。</p>
 <p>既然有创建，那就有删除</p>
 <pre><code>  DROP DATABASE database_name;</code></pre><p>注意（删除后将不能恢复，谨慎删除！）</p>
@@ -172,10 +172,10 @@
  DeptId     INT(11),
  Salary   FLOAT 
  );</code></pre><p>执行语句后我们使用SHOW TABLES；观察表格是否创建成功</p>
-<p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%875.png?raw=true" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%875.png?raw=true" alt=""></p>
 <p>用 </p>
 <pre><code>  DESC  表名;</code></pre><p>查看表中的具体字段信息</p>
-<p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%876.png?raw=true" srcset="/img/loading.gif" alt=""></p>
+<p><img src="https://github.com/18yang/-01/blob/%E6%95%B0%E6%8D%AE%E5%BA%93%E7%AE%80%E5%8D%95%E6%93%8D%E4%BD%9C/%E5%9B%BE%E7%89%876.png?raw=true" alt=""></p>
 <p>如果不能够修改数据表中的信息那这个软件无疑是失败的，当然MySql有修改字段信息的语法，可以实现字段名的更改，字段类型改变，添加或删除字段……还有一个问题：数据库中两个不同的表能不能构成某种关系呢？</p>
 <p>是不是有些意犹未尽，我们下次再见！</p>
 <p>PRODUCED BY MR.YE!</p>
@@ -277,8 +277,6 @@
 <script src="/lib/bootstrap/js/bootstrap.min.js" ></script>
 <script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
 <script src="/js/main.js" ></script>
-
-  <script src="/js/lazyload.js" ></script>
 
 
   
