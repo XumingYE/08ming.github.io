@@ -115,6 +115,25 @@
   
   
   <entry>
+    <title>行为参数化</title>
+    <link href="undefined2019/10/20/%E8%A1%8C%E4%B8%BA%E5%8F%82%E6%95%B0%E5%8C%96/"/>
+    <url>2019/10/20/%E8%A1%8C%E4%B8%BA%E5%8F%82%E6%95%B0%E5%8C%96/</url>
+    
+    <content type="html"><![CDATA[<h3 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h3><ul><li><strong>Java行为参数化</strong></li><li>作者: 叶某</li></ul><a id="more"></a><ol><li><p>在软件工程中我们总是会遇到用户需求改变的问题，加入你要做一个农户的库存查询系统，今天农户跑过来问你能不能做一个查询绿苹果的数量的功能，于是你很轻松的就完成了，明年农户跑过来问你做一个查询苹果重量的功能…，于是你Copy了上次的代码，改变一下条件，很轻松的就完成了。</br>这样一天天的农户的需求一直在改变，而你的代码要每次重复增加，一旦要修改其中的一段，那么工程量是巨大的，这毫无疑问不是一个好的解决方法。那么我们这时候就可以将行为参数化。</p><blockquote><p>下文中的实例都是假设在Apple对象有getColor和getWeight的前提下进行</p></blockquote></li><li><p>这时我们需要根据Apple的某些属性来返回一个boolean值。我们把它成为谓词。显然我们定义一个接口</p><pre><code>public interface ApplePredicate{    boolean test(Apple apple);}现在就可以用ApplePredicate的多个实现代表不同的选择标准了,比如//仅仅选出重的苹果public class AppleHeavyWeightPredicate implements AplePredicate{    public boolean test(Apple apple){        return apple.getWeight()&gt;150;    }}//仅仅选出绿色的苹果public class AppleGreenColorPredicate implements AplePredicate{    public boolean test(Apple apple){        return &quot;green&quot;.equals(apple.getColor());    }}</code></pre></li><li><p>在这里，你的代码现在足够灵活，可以应对任何涉及苹果属性的需求变更了：</p><pre><code>public class AppleRedAndHeavyPredicate implements ApplePredicate{    public boolean test(Apple apple){        return &quot;red&quot;.equals(apple.getColor())        &amp;&amp; apple.getWeight()&gt;150;    }}List&lt;Apple&gt; redAndHeavyApples = filter(inventory ,new AppleRedAndHeavyPredicate());</code></pre><p>现在filter方法的行为取决于你通过ApplePredicate对象传递的代码，换句话说，你把filt方法的行为参数化了！</p><h3 id="前文所述都是为Java-8-特性之Lambda表达式做铺垫"><a href="#前文所述都是为Java-8-特性之Lambda表达式做铺垫" class="headerlink" title="前文所述都是为Java 8 特性之Lambda表达式做铺垫"></a>前文所述都是为Java 8 特性之Lambda表达式做铺垫</h3></li><li><p>Lambda表达式的灵活运用</p><blockquote><p>相信大家在学习JAVA基础课程的时候都会学习Lambda表达式，很多同学也是云里雾里（我就是其中之一），仔细阅读下文，相信你一定会有所收获</p></br>在前文</blockquote><pre><code>List&lt;Apple&gt; redAndHeavyApples = filter(inventory ,new AppleRedAndHeavyPredicate());</code></pre><p>这样的代码看起来让人比较费解<br>然而在Java 8里可以用Lambda表达式重写为下面的样子：</p><pre><code>List&lt;Apple&gt; redAndHeavyApples = filter(inventory ,(Apple apple)-&gt;&quot;red&quot;.equals(apple.getColor()));</code></pre><p>不得不承认这段代码比之前的干净很多，这很好，<font color = red><strong>因为它看起来更像问题陈述本身了</strong></font></p></li></ol>]]></content>
+    
+    
+    
+    <tags>
+      
+      <tag>Java</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>JSP常用语法</title>
     <link href="undefined2019/10/20/blog7/"/>
     <url>2019/10/20/blog7/</url>
