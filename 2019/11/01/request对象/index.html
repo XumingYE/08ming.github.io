@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="08ming">
   <meta name="keywords" content="">
-  <title>标签 - Java ~ ming&#39;s blog</title>
+  <title>request对象 ~ ming&#39;s blog</title>
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
   <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
   <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -112,6 +112,22 @@
             </span>
 
             
+              <br>
+              <p class="mt-3">星期五, 十一月 1日 2019, 1:11 下午</p>
+              <p class="mt-3">
+                <i class="fa fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                星期五, 十一月 1日 2019, 1:11 下午
+              </p>
+              
+                <!--不蒜子统计文章PV-->
+                
+                <p>
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">阅读次数 
+                  <span id="busuanzi_value_page_pv"></span> 次</span>
+                </p>
+              
+            
           </div>
 
           
@@ -122,35 +138,138 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 1 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2019</p>
-    
-    <a href="/2019/10/20/%E8%A1%8C%E4%B8%BA%E5%8F%82%E6%95%B0%E5%8C%96/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">行为参数化以及Lambda表达式</span>
-      <span style="float: right;">10-20</span>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto">
+          <div class="markdown-body">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文主要弄清楚JSP中数据到底传入哪了？如何得到用户的数据。</p>
+<h3 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h3><ul>
+<li><strong>request对象的基础使用</strong></li>
+<li>作者: 叶某</li>
+</ul>
+<a id="more"></a>
 
-              </div>
-            </div>
+<ol>
+<li><h3 id="基本的网页响应形式"><a href="#基本的网页响应形式" class="headerlink" title="基本的网页响应形式"></a>基本的网页响应形式</h3></li>
+</ol>
+<blockquote>
+<p>用户端界面发送请求–&gt;响应端界面</p>
+</blockquote>
+<ol start="2">
+<li><h3 id="request应用实例"><a href="#request应用实例" class="headerlink" title="request应用实例"></a>request应用实例</h3></li>
+</ol>
+<ul>
+<li><p>首先新建一个文件名为login.jsp文件，源码如下</p>
+<pre><code>  &lt;%@pagecontentType=&quot;text/html;charset=UTF-8&quot;language=&quot;java&quot;%&gt;
+  &lt;html&gt;
+  &lt;head&gt;
+  &lt;title&gt;getRequest.jsp&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+  &lt;div style=&quot;text-align:center&quot;&gt;
+  &lt;forma ction=&quot;响应的界面名称&quot;method=&quot;响应方式有两种1.post2.get&quot;一般为post&gt;
+
+  &lt;tr&gt;
+  &lt;td&gt;用户名称&lt;/td&gt;
+  &lt;td&gt;&lt;input name=&quot;usename&quot;type=&quot;text&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+  &lt;td&gt;用户密码&lt;/td&gt;
+  &lt;td&gt;&lt;input name=&quot;password&quot;type=&quot;password&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+  &lt;td&gt;&lt;input type=&quot;submit&quot;value=&quot;登录&quot;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+
+  &lt;/form&gt;
+  &lt;/div&gt;
+  &lt;/body&gt;
+  &lt;/html&gt;
+</code></pre></li>
+<li><p>如上文中的<code>&lt;input&gt;</code>属性中的name就是响应端能够得到的数据的名称，type则为该数据的数据类型（如：设置为”password”，用户密码输入时的内容将用”*”代替显示）其中我们把用户输入的数据放入<form>标签中，这样当用户点击type为submit按钮界面就会跳转到响应的页面中。</p>
+<br/>
+<br/></li>
+<li><p>如图所示</p>
+<blockquote>
+<p><img src="https://github.com/08ming/Img/blob/master/example.png?raw=true" srcset="/img/loading.gif" alt=""></p>
+</blockquote>
+</li>
+</ul>
+<ol start="3">
+<li><h3 id="取得用户输入的数据"><a href="#取得用户输入的数据" class="headerlink" title="取得用户输入的数据"></a>取得用户输入的数据</h3></li>
+</ol>
+<ul>
+<li>首先新建一个名为”getInfo.jsp”JSP文件,源码如下：<pre><code> &lt;%@pagecontentType=&quot;text/html;charset=UTF-8&quot;language=&quot;java&quot;%&gt;
+ &lt;html&gt;
+ &lt;head&gt;
+ &lt;title&gt;getInfo.jsp&lt;/title&gt;
+ &lt;/head&gt;
+ &lt;body&gt;
+ &lt;%
+ String name=request.getParameter(&quot;usename&quot;);
+ String password=request.getParameter(&quot;password&quot;);
+ %&gt;
+ &lt;/body&gt;
+ &lt;/html&gt;
+</code></pre></li>
+</ul>
+<p>```</p>
+<ul>
+<li>这样用户的输入数据就保存在name和password中了，你就可以利用用户给出的数据执行一些操作。<br/>
+<br/></li>
+<li>关于数据的存储还有创建对象的方式，详细会在下次内容中讲解。</li>
+</ul>
+
+            <hr>
+          </div>
+          <br>
+          <div>
+            
+            <p>
+              <i class="iconfont icon-tag"></i>
+              
+                <a class="hover-with-bg" href="/tags/JSP">JSP</a>
+              
+                <a class="hover-with-bg" href="/tags/request%E5%AF%B9%E8%B1%A1%E8%8E%B7%E5%8F%96%E6%95%B0%E6%8D%AE">request对象获取数据</a>
+              
+              <span id="/2019/11/01/request对象/" class="visitors leancloud_visitors" data-flag-title="request对象">
+                <em id="visitors-text" class="post-meta-item-text"></em>
+                <i id="visitors-count"></i>
+              </span>
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -219,6 +338,11 @@
   <script src="/js/lazyload.js" ></script>
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
   <script src="/lib/prettify/prettify.min.js" ></script>
   <script>
@@ -234,7 +358,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "标签 - Java&nbsp;",
+        "request对象&nbsp;",
       ],
       cursorChar: "|",
       typeSpeed: 70,
