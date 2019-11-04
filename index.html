@@ -176,6 +176,49 @@ request对象的基础使用
     
     
     <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/11/01/Lambda_ch01/">
+        <p class="h4 index-header">Lamda表达式之  比较器链</p>
+        
+        
+          
+        
+        <div class="index-excerpt" >
+          <div class="index-text mb-1">前言本文主要弄清楚Java 8 特性中的Lambda 的比较器链
+内容在上文中我们就说过，如果农户要选择一个又红又中的苹果，需要进行排序操作，我们可以为这个对象写两个比较函数，简单一点的是利用匿名内部类实现功能，更简单的就是行为参数化。
+那么，还有其他的方法吗？在JAVA中我们还有一个叫做比较器链，如果你在排序中发现两个苹果一样重怎么办？哪个苹果应该排在前面呢？我们这时定义两个方法，sort1()用来选择排序红的苹果，sort()2用来选择排序重的苹果，此时我们的方法就显得繁琐。因此，比较器链和为此复合就出来了：
+inventory.sort(comparing(Apple::getWeight)
+                .thenComparing(Apple::getColor));//当两个苹果一样重的时候进一步按照颜色排序谓词接口包括三个方法
+
+negate
+and
+or
+比如 redApple.negate();该函数的意思就是红苹果的非，即不是红苹果谓词接口示范代码：
+
+Predicate &lt;Apple&gt; redAndHeavyAppleOrGreen </div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-11-01&nbsp;&nbsp;
+        
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/Java">Java</a>&nbsp;
+          
+            <a href="/tags/lambda">lambda</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
       <a href="/2019/10/22/blog10/">
         <p class="h4 index-header">快速排序算法</p>
         
@@ -459,42 +502,6 @@ JSP简介 JSP技术是由SUN公司提出，于1999年推出的一款建设动态
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/MySQL">MySQL</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/19/blog1/">
-        <p class="h4 index-header">入门程序员必备基础（一）—— 计算机系统基础（一）</p>
-        
-        
-          
-          
-        
-        <div class="index-excerpt" style="max-height: none;">
-          <div class="index-text mb-1">计算机系统是由硬件和软件系统组成，通过运行程序来协调工作。计算机硬件是物理装置，计算机软件是程序、数据、和相关文档的集合。...</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-19&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%9F%BA%E7%A1%80">程序员基础</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80">计算机基础</a>&nbsp;
           
         
       </div>

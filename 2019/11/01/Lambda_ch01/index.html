@@ -15,7 +15,7 @@
   <meta name="description" content="">
   <meta name="author" content="08ming">
   <meta name="keywords" content="">
-  <title>标签 - Java ~ ming&#39;s blog</title>
+  <title>Lamda表达式之  比较器链 ~ ming&#39;s blog</title>
   <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
   <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
   <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
@@ -41,7 +41,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -112,6 +112,22 @@
             </span>
 
             
+              <br>
+              <p class="mt-3">星期五, 十一月 1日 2019, 1:11 下午</p>
+              <p class="mt-3">
+                <i class="fa fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                星期五, 十一月 1日 2019, 1:11 下午
+              </p>
+              
+                <!--不蒜子统计文章PV-->
+                
+                <p>
+                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">阅读次数 
+                  <span id="busuanzi_value_page_pv"></span> 次</span>
+                </p>
+              
+            
           </div>
 
           
@@ -122,41 +138,79 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5 z-depth-3" id="board">
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 2 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2019</p>
-    
-    <a href="/2019/11/01/Lambda_ch01/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Lamda表达式之  比较器链</span>
-      <span style="float: right;">11-01</span>
-    </a>
-  
-    
-    <a href="/2019/10/20/%E8%A1%8C%E4%B8%BA%E5%8F%82%E6%95%B0%E5%8C%96/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">行为参数化以及Lambda表达式</span>
-      <span style="float: right;">10-20</span>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="py-5 z-depth-3" id="board">
+        <div class="post-content mx-auto">
+          <div class="markdown-body">
+            <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>本文主要弄清楚Java 8 特性中的Lambda 的比较器链</p>
+<h3 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h3><p>在上文中我们就说过，如果农户要选择一个又红又中的苹果，需要进行排序操作，我们可以为这个对象写两个比较函数，简单一点的是利用匿名内部类实现功能，更简单的就是行为参数化。<br></br></p>
+<h2 id="那么，还有其他的方法吗？"><a href="#那么，还有其他的方法吗？" class="headerlink" title="那么，还有其他的方法吗？"></a><font color = red>那么，还有其他的方法吗？</font></h2><p>在JAVA中我们还有一个叫做比较器链，如果你在排序中发现两个苹果一样重怎么办？哪个苹果应该排在前面呢？我们这时定义两个方法，sort1()用来选择排序红的苹果，sort()2用来选择排序重的苹果，此时我们的方法就显得繁琐。因此，比较器链和为此复合就出来了：</p>
+<pre><code>inventory.sort(comparing(Apple::getWeight)
+                .thenComparing(Apple::getColor));//当两个苹果一样重的时候进一步按照颜色排序</code></pre><p>谓词接口包括三个方法</p>
+<ol>
+<li>negate</li>
+<li>and</li>
+<li>or<blockquote>
+<p>比如 redApple.negate();<br>该函数的意思就是红苹果的非，即不是红苹果<br>谓词接口示范代码：</p>
+</blockquote>
+<pre><code>Predicate &lt;Apple&gt; redAndHeavyAppleOrGreen = 
+ redApple.and(a-&gt;a.getWeight()&gt;150)
+         .or(a-&gt;&quot;green&quot;.equals(a.getColor()));</code></pre><h3 id="请注意，谓词接口的优先级为从左到右，如："><a href="#请注意，谓词接口的优先级为从左到右，如：" class="headerlink" title="请注意，谓词接口的优先级为从左到右，如："></a>请注意，谓词接口的优先级为从左到右，如：</h3><blockquote>
+<p>a.or(b).and(c) 可以看作 (a||b)&amp;&amp;c</p>
+</blockquote>
+</li>
+</ol>
 
-              </div>
-            </div>
+            <hr>
+          </div>
+          <br>
+          <div>
+            
+            <p>
+              <i class="iconfont icon-tag"></i>
+              
+                <a class="hover-with-bg" href="/tags/Java">Java</a>
+              
+                <a class="hover-with-bg" href="/tags/lambda">lambda</a>
+              
+              <span id="/2019/11/01/Lambda_ch01/" class="visitors leancloud_visitors" data-flag-title="Lamda表达式之  比较器链">
+                <em id="visitors-text" class="post-meta-item-text"></em>
+                <i id="visitors-count"></i>
+              </span>
+            </p>
+            
+              <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
+            
           </div>
         </div>
       </div>
+    </div>
+    <div class="d-none d-lg-block col-lg-2 toc-container">
+      
+  <div id="toc">
+    <p class="h4"><i class="far fa-list-alt"></i>&nbsp;目录</p>
+    <div id="tocbot"></div>
+  </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- custom -->
+
+
+<!-- Comments -->
+<div class="col-lg-7 mx-auto nopadding-md">
+  <div class="container comments mx-auto" id="comments">
+    
+  </div>
+</div>
+
     
   </main>
 
@@ -225,6 +279,11 @@
   <script src="/js/lazyload.js" ></script>
 
 
+  
+    <script src="/lib/tocbot/tocbot.min.js" ></script>
+  
+  <script src="/js/post.js" ></script>
+
 
   <script src="/lib/prettify/prettify.min.js" ></script>
   <script>
@@ -240,7 +299,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "标签 - Java&nbsp;",
+        "Lamda表达式之  比较器链&nbsp;",
       ],
       cursorChar: "|",
       typeSpeed: 70,
