@@ -16,26 +16,21 @@
   <meta name="author" content="08ming">
   <meta name="keywords" content="">
   <title>ming&#39;s blog</title>
-  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
-  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
-  <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
-  <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
-  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
-  
-    <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
-  
-  <link rel="stylesheet" href="/css/main.css"  >
 
-  
-  <script>
-    var _hmt = _hmt || [];
-    (function () {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?Key";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
 
 </head>
 
@@ -116,7 +111,7 @@
 
           
             <div class="scroll-down-bar">
-              <i class="fa fa-angle-down scroll-down-arrow"></i>
+              <i class="fas fa-angle-down scroll-down-arrow"></i>
             </div>
           
         </div>
@@ -134,42 +129,6 @@
               <div class="col-12 col-md-10 m-auto">
                 
 
-
-  <div class="row mb-4 mx-auto">
-    
-    
-    <div class="col-12 col-md-8 m-auto">
-      <a href="/2019/09/19/blog1/">
-        <p class="h4 index-header">入门程序员必备基础（一）—— 计算机系统基础（一）</p>
-        
-        
-          
-          
-        
-        <div class="index-excerpt" style="max-height: none;">
-          <div class="index-text mb-1">计算机系统是由硬件和软件系统组成，通过运行程序来协调工作。计算机硬件是物理装置，计算机软件是程序、数据、和相关文档的集合。...</div>
-        </div>
-      </a>
-
-      <div>
-        
-          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-19&nbsp;&nbsp;
-        
-        
-          <i class="iconfont icon-inbox"></i>
-          
-            <a href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%9F%BA%E7%A1%80">程序员基础</a>&nbsp;
-          &nbsp;
-        
-        
-          <i class="iconfont icon-tag"></i>
-          
-            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80">计算机基础</a>&nbsp;
-          
-        
-      </div>
-    </div>
-  </div>
 
   <div class="row mb-4 mx-auto">
     
@@ -201,6 +160,42 @@
           <i class="iconfont icon-tag"></i>
           
             <a href="/tags/MySQL">MySQL</a>&nbsp;
+          
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="row mb-4 mx-auto">
+    
+    
+    <div class="col-12 col-md-8 m-auto">
+      <a href="/2019/09/19/blog1/">
+        <p class="h4 index-header">入门程序员必备基础（一）—— 计算机系统基础（一）</p>
+        
+        
+          
+          
+        
+        <div class="index-excerpt" style="max-height: none;">
+          <div class="index-text mb-1">计算机系统是由硬件和软件系统组成，通过运行程序来协调工作。计算机硬件是物理装置，计算机软件是程序、数据、和相关文档的集合。...</div>
+        </div>
+      </a>
+
+      <div>
+        
+          <i class="iconfont icon-riqi2"></i>&nbsp;2019-09-19&nbsp;&nbsp;
+        
+        
+          <i class="iconfont icon-inbox"></i>
+          
+            <a href="/categories/%E7%A8%8B%E5%BA%8F%E5%91%98%E5%9F%BA%E7%A1%80">程序员基础</a>&nbsp;
+          &nbsp;
+        
+        
+          <i class="iconfont icon-tag"></i>
+          
+            <a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9F%BA%E7%A1%80">计算机基础</a>&nbsp;
           
         
       </div>
@@ -318,15 +313,16 @@
 
 
   <nav aria-label="index posts navigation">
-    <ul class="pagination pg-blue justify-content-center mt-5">
-      
-        <li class="page-item">
-          <a class="page-link" href="/#board">上一页</a>
-        </li>
-      
-      
-    </ul>
+    <span class="pagination pg-blue justify-content-center mt-5" id="pagination">
+      <a class="extend prev" rel="prev" href="/"><i class="fas fa-angle-double-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+    </span>
   </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByClassName("page-number")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 
@@ -374,22 +370,26 @@
     <i class="iconfont icon-love"></i>
     <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
     <br>
+
     
-      
-        <!--不蒜子统计PV-->
-        
-        &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
           <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
-      
-      
-        <!--不蒜子统计UV-->
-        
-        &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
             <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
-      
-      <br>
+  
+  <br>
+
+
+
     
-    
+
   </div>
 </footer>
 
@@ -400,17 +400,44 @@
 <script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
 <script src="/js/main.js" ></script>
 
+
   <script src="/js/lazyload.js" ></script>
+
+
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
   <script src="/lib/prettify/prettify.min.js" ></script>
   <script>
     $(document).ready(function () {
-      $('pre').addClass('prettyprint linenums');
+      $('pre').addClass('prettyprint  linenums');
       prettyPrint();
     })
   </script>
+
 
 
   <script src="/lib/typed/typed.min.js" ></script>
@@ -418,9 +445,9 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "不忘初心，方得始终！&nbsp;",
+        "&nbsp;",
       ],
-      cursorChar: "|",
+      cursorChar: "_",
       typeSpeed: 70,
       loop: false,
     });
@@ -430,6 +457,7 @@
       typed.start();
     });
   </script>
+
 
 
   <script src="/lib/anchor/anchor.min.js" ></script>
@@ -461,11 +489,23 @@
 
 
 
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
   <script>
-    if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) || (/Safari/i.test(navigator.userAgent) && !/Chrome/i.test(navigator.userAgent))) {
-      $("#background").css("background-attachment", "scroll");
-    }
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
   </script>
+
+
+
+
+
+
 
 </body>
 </html>

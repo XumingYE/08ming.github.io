@@ -16,26 +16,21 @@
   <meta name="author" content="08ming">
   <meta name="keywords" content="">
   <title>分类 ~ ming&#39;s blog</title>
-  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
-  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
-  <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
-  <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
-  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
-  
-    <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
-  
-  <link rel="stylesheet" href="/css/main.css"  >
 
-  
-  <script>
-    var _hmt = _hmt || [];
-    (function () {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?Key";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
 
 </head>
 
@@ -177,22 +172,26 @@
     <i class="iconfont icon-love"></i>
     <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
     <br>
+
     
-      
-        <!--不蒜子统计PV-->
-        
-        &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
           <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
-      
-      
-        <!--不蒜子统计UV-->
-        
-        &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
             <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
-      
-      <br>
+  
+  <br>
+
+
+
     
-    
+
   </div>
 </footer>
 
@@ -203,17 +202,44 @@
 <script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
 <script src="/js/main.js" ></script>
 
+
   <script src="/js/lazyload.js" ></script>
+
+
+
+
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
 
 
 
   <script src="/lib/prettify/prettify.min.js" ></script>
   <script>
     $(document).ready(function () {
-      $('pre').addClass('prettyprint linenums');
+      $('pre').addClass('prettyprint  linenums');
       prettyPrint();
     })
   </script>
+
 
 
   <script src="/lib/typed/typed.min.js" ></script>
@@ -223,7 +249,7 @@
         '  ',
         "分类&nbsp;",
       ],
-      cursorChar: "|",
+      cursorChar: "_",
       typeSpeed: 70,
       loop: false,
     });
@@ -233,6 +259,7 @@
       typed.start();
     });
   </script>
+
 
 
   <script src="/lib/anchor/anchor.min.js" ></script>
@@ -264,11 +291,23 @@
 
 
 
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
   <script>
-    if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) || (/Safari/i.test(navigator.userAgent) && !/Chrome/i.test(navigator.userAgent))) {
-      $("#background").css("background-attachment", "scroll");
-    }
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
   </script>
+
+
+
+
+
+
 
 </body>
 </html>

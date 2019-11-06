@@ -16,26 +16,21 @@
   <meta name="author" content="08ming">
   <meta name="keywords" content="">
   <title>Servlet技术 ~ ming&#39;s blog</title>
-  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
-  <link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
-  <link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
-  <link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
-  <link rel="stylesheet" href="https://at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
-  
-    <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
-  
-  <link rel="stylesheet" href="/css/main.css"  >
 
-  
-  <script>
-    var _hmt = _hmt || [];
-    (function () {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?Key";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script>
+  <link rel="stylesheet" href="/lib/font-awesome/css/all.min.css"  >
+<link rel="stylesheet" href="/lib/bootstrap/css/bootstrap.min.css"  >
+<link rel="stylesheet" href="/lib/mdbootstrap/css/mdb.min.css"  >
+<link rel="stylesheet" href="/lib/github-markdown/github-markdown.min.css"  >
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1067060_qzomjdt8bmp.css">
+
+
+  <link rel="stylesheet" href="/lib/prettify/tomorrow-night-eighties.min.css"  >
+
+<link rel="stylesheet" href="/css/main.css"  >
+
+
+  <link rel="stylesheet" href="/lib/fancybox/jquery.fancybox.min.css"  >
+
 
 </head>
 
@@ -113,20 +108,39 @@
 
             
               <br>
-              <p class="mt-3">星期一, 十月 21日 2019, 9:13 晚上</p>
-              <p class="mt-3">
-                <i class="fa fa-calendar-alt" aria-hidden="true"></i>&nbsp;
-                星期一, 十月 21日 2019, 9:13 晚上
-              </p>
               
-                <!--不蒜子统计文章PV-->
-                
-                <p>
-                  <i class="fa fa-user" aria-hidden="true"></i>&nbsp;
-                  <span id="busuanzi_container_page_pv">阅读次数 
-                  <span id="busuanzi_value_page_pv"></span> 次</span>
+                <p class="mt-3">
+                  <i class="fas fa-calendar-alt" aria-hidden="true"></i>&nbsp;
+                  星期一, 十月 21日 2019, 9:13 晚上
                 </p>
               
+
+              <p>
+                
+                  
+                  &nbsp;<i class="far fa-chart-bar"></i>
+                  <span class="post-count">
+                    1.2k 字
+                  </span>&nbsp;
+                
+
+                
+                  
+                  &nbsp;<i class="far fa-clock"></i>
+                  <span class="post-count">
+                      4 分钟
+                  </span>&nbsp;
+                
+
+                
+                  <!-- 不蒜子统计文章PV -->
+                  
+                  &nbsp;<i class="far fa-eye" aria-hidden="true"></i>&nbsp;
+                  <span id="busuanzi_container_page_pv">
+                    <span id="busuanzi_value_page_pv"></span> 次
+                  </span>&nbsp;
+                
+              </p>
             
           </div>
 
@@ -145,7 +159,7 @@
     <div class="d-none d-lg-block col-lg-2"></div>
     <div class="col-lg-8 nopadding-md">
       <div class="py-5 z-depth-3" id="board">
-        <div class="post-content mx-auto">
+        <div class="post-content mx-auto" id="post">
           <div class="markdown-body">
             <h2 id="Servlet是什么"><a href="#Servlet是什么" class="headerlink" title="Servlet是什么"></a>Servlet是什么</h2><h4 id="Servlet是利用java类编写的服务端应用程序，顾名思义，它通常实在服务端运行的程序，打开浏览器即可调用一个。它可以被看作是位于客户端和服务器端的一个中间层，负责接受和请求客户端用户的响应。"><a href="#Servlet是利用java类编写的服务端应用程序，顾名思义，它通常实在服务端运行的程序，打开浏览器即可调用一个。它可以被看作是位于客户端和服务器端的一个中间层，负责接受和请求客户端用户的响应。" class="headerlink" title="Servlet是利用java类编写的服务端应用程序，顾名思义，它通常实在服务端运行的程序，打开浏览器即可调用一个。它可以被看作是位于客户端和服务器端的一个中间层，负责接受和请求客户端用户的响应。"></a>Servlet是利用java类编写的服务端应用程序，顾名思义，它通常实在服务端运行的程序，打开浏览器即可调用一个。它可以被看作是位于客户端和服务器端的一个中间层，负责接受和请求客户端用户的响应。</h4><h4 id="Servlet可以提供以下功能："><a href="#Servlet可以提供以下功能：" class="headerlink" title="Servlet可以提供以下功能："></a>Servlet可以提供以下功能：</h4><ol>
 <li>对客户端发送的数据进行读取和拦截</li>
@@ -223,24 +237,24 @@ response.encodeURL(&quot;login.jsp&quot;);</code></pre><p>本次介绍很的是�
           </div>
           <br>
           <div>
+            <p>
             
-              <p>
+              <span>
                 <i class="iconfont icon-inbox"></i>
                 
                   <a class="hover-with-bg" href="/categories/Java%20web%E5%BC%80%E5%8F%91%E5%AD%A6%E4%B9%A0">Java web开发学习</a>
                   &nbsp;
                 
-              </p>
+              </span>&nbsp;&nbsp;
             
-            <p>
-              <i class="iconfont icon-tag"></i>
-              
-                <a class="hover-with-bg" href="/tags/JSP/Servlet">JSP/Servlet</a>
-              
-              <span id="/2019/10/21/blog9/" class="visitors leancloud_visitors" data-flag-title="Servlet技术">
-                <em id="visitors-text" class="post-meta-item-text"></em>
-                <i id="visitors-count"></i>
+            
+              <span>
+                <i class="iconfont icon-tag"></i>
+                
+                  <a class="hover-with-bg" href="/tags/JSP/Servlet">JSP/Servlet</a>
+                
               </span>
+            
             </p>
             
               <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a href="https://zh.wikipedia.org/wiki/Wikipedia:CC_BY-SA_3.0%E5%8D%8F%E8%AE%AE%E6%96%87%E6%9C%AC" target="_blank" rel="nofollow noopener noopener">CC BY-SA 3.0协议</a> 。转载请注明出处！</p>
@@ -309,22 +323,26 @@ response.encodeURL(&quot;login.jsp&quot;);</code></pre><p>本次介绍很的是�
     <i class="iconfont icon-love"></i>
     <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"> <b>Fluid</b></a>
     <br>
+
     
-      
-        <!--不蒜子统计PV-->
-        
-        &nbsp;<span id="busuanzi_container_site_pv">总访问量 
+  
+    <!-- 不蒜子统计PV -->
+    
+    &nbsp;<span id="busuanzi_container_site_pv">总访问量 
           <span id="busuanzi_value_site_pv"></span> 次</span>&nbsp;
-      
-      
-        <!--不蒜子统计UV-->
-        
-        &nbsp;<span id="busuanzi_container_site_uv">总访客数 
+  
+  
+    <!-- 不蒜子统计UV -->
+    
+    &nbsp;<span id="busuanzi_container_site_uv">总访客数 
             <span id="busuanzi_value_site_uv"></span> 人</span>&nbsp;
-      
-      <br>
+  
+  <br>
+
+
+
     
-    
+
   </div>
 </footer>
 
@@ -335,7 +353,9 @@ response.encodeURL(&quot;login.jsp&quot;);</code></pre><p>本次介绍很的是�
 <script src="/lib/mdbootstrap/js/mdb.min.js" ></script>
 <script src="/js/main.js" ></script>
 
+
   <script src="/js/lazyload.js" ></script>
+
 
 
   
@@ -344,13 +364,38 @@ response.encodeURL(&quot;login.jsp&quot;);</code></pre><p>本次介绍很的是�
   <script src="/js/post.js" ></script>
 
 
+
+  <script src="/lib/smooth-scroll/smooth-scroll.min.js" ></script>
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+<!-- Plugins -->
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
   <script src="/lib/prettify/prettify.min.js" ></script>
   <script>
     $(document).ready(function () {
-      $('pre').addClass('prettyprint linenums');
+      $('pre').addClass('prettyprint  linenums');
       prettyPrint();
     })
   </script>
+
 
 
   <script src="/lib/typed/typed.min.js" ></script>
@@ -360,7 +405,7 @@ response.encodeURL(&quot;login.jsp&quot;);</code></pre><p>本次介绍很的是�
         '  ',
         "Servlet技术&nbsp;",
       ],
-      cursorChar: "|",
+      cursorChar: "_",
       typeSpeed: 70,
       loop: false,
     });
@@ -370,6 +415,7 @@ response.encodeURL(&quot;login.jsp&quot;);</code></pre><p>本次介绍很的是�
       typed.start();
     });
   </script>
+
 
 
   <script src="/lib/anchor/anchor.min.js" ></script>
@@ -401,11 +447,23 @@ response.encodeURL(&quot;login.jsp&quot;);</code></pre><p>本次介绍很的是�
 
 
 
+  <script src="/lib/fancybox/jquery.fancybox.min.js" ></script>
   <script>
-    if (/(iPhone|iPad|iPod|iOS)/i.test(navigator.userAgent) || (/Safari/i.test(navigator.userAgent) && !/Chrome/i.test(navigator.userAgent))) {
-      $("#background").css("background-attachment", "scroll");
-    }
+    $("#post img:not(.no-zoom img, img[no-zoom])").each(
+      function () {
+        var element = document.createElement("a");
+        $(element).attr("data-fancybox", "images");
+        $(element).attr("href", $(this).attr("src"));
+        $(this).wrap(element);
+      }
+    );
   </script>
+
+
+
+
+
+
 
 </body>
 </html>
